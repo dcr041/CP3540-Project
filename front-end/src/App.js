@@ -1,24 +1,76 @@
-import logo from './logo.svg';
-import './App.css';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import { useState } from 'react';
+import { BrowserRouter as Router,
+  Route,
+  Routes,
+} from 'react-router-dom';
+import CATEGORIES from './categories';
+import Category from './Category';
+import GameView from './GameView';
+import NavBar from './NavBar';
 
 function App() {
+  const [category, setCategory] = useState(null);
+  const [questions, setQuestions] = useState([]);
+
+  const setCurrentCategory = category => {
+    setCategory(category);
+
+    switch (category.name) {
+        case CATEGORIES.animals.name:
+            setQuestions(questionsAnimal);
+            break;
+        case CATEGORIES.geography.name:
+            setQuestions(questionsGeography);
+            break;
+        case CATEGORIES.sports.name:
+            setQuestions(questionsSports);
+            break;
+    }
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Container>
+        <Router>
+          <NavBar />
+          <Routes>
+            <Route path="/" exact />
+            <Route path="/FormPage" />
+          </Routes>
+        </Router>
+          <Row className="my-5">
+              <Col className="text-center">
+                  <h1 onClick={() => setCategory(null)}>Knowledgehook</h1>
+              </Col>
+          </Row>
+          {category ? (
+              <>
+                  <Row className="d-flex justify-content-center mb-4">
+                      <Col md={4} className="text-center">
+                          <Category category={category} size="sm" onSelect={setCurrentCategory} />
+                      </Col>
+                  </Row>
+                  <Row className="d-flex justify-content-center">
+                      <Col md={4} className="text-center">
+                          <GameView questions={questions} />
+                      </Col>
+                  </Row>
+              </>
+          ) : (
+              <>
+                  {Object.values(CATEGORIES).map((c, i) => (
+                      <Row key={i} className="d-flex justify-content-center mb-5">
+                          <Col md={4}>
+                              <Category category={c} onSelect={setCurrentCategory} />
+                          </Col>
+                      </Row>
+                  ))}
+              </>
+          )}
+      </Container>
+
   );
 }
 

@@ -17,7 +17,7 @@ const shuffleAnswers = question => {
     return answers;
 };
 
-export default function QuestionBox({ questions }) {
+export default function GameView({ questions }) {
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [currentQuestion, setCurrentQuestion] = useState(questions[0]);
     const [answers, setAnswers] = useState([]);
@@ -54,7 +54,7 @@ export default function QuestionBox({ questions }) {
     };
 
     if (gameOver) {
-        return <Result countCorrectAnswers={countCorrectAnswers} />;
+        return <Statistics countCorrectAnswers={countCorrectAnswers} />;
     }
 
     return (
