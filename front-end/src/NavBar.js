@@ -4,7 +4,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 const NavBar = () => (
-    <navbar>
+    <nav>
         <Row>
             <Col className="text-center">
                 <button varient="dark">
@@ -17,7 +17,7 @@ const NavBar = () => (
             </Col>
         </Row>
         <hr className="text-white"></hr>
-    </navbar>
+    </nav>
 );
 
 export default NavBar;

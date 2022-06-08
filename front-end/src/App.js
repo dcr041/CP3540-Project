@@ -10,6 +10,9 @@ import CATEGORIES from './categories';
 import Category from './Category';
 import GameView from './GameView';
 import NavBar from './NavBar';
+import questionsAnimals from './data/animals.json';
+import questionsGeography from './data/geography.json';
+import questionsSports from './data/sports.json';
 
 function App() {
   const [category, setCategory] = useState(null);
@@ -20,7 +23,7 @@ function App() {
 
     switch (category.name) {
         case CATEGORIES.animals.name:
-            setQuestions(questionsAnimal);
+            setQuestions(questionsAnimals);
             break;
         case CATEGORIES.geography.name:
             setQuestions(questionsGeography);
