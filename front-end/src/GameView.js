@@ -36,7 +36,7 @@ export default function GameView({ questions }) {
         setIsSubmitting(true);
         setSelectedAnswer(answer);
 
-        if (answer === currentQuestion.correct) {
+        if (answer === currentQuestion.correct_answer) {
             setCountCorrectAnswers(countCorrectAnswers + 1);
         }
 
@@ -75,9 +75,9 @@ export default function GameView({ questions }) {
                                 key={i}
                                 className={classNames({
                                     correct:
-                                        isSelectedAndSubmitting && answer === currentQuestion.correct,
+                                        isSelectedAndSubmitting && answer === currentQuestion.correct_answer,
                                     incorrect:
-                                        isSelectedAndSubmitting && answer !== currentQuestion.correct,
+                                        isSelectedAndSubmitting && answer !== currentQuestion.correct_answer,
                                 })}
                                 onClick={() => selectAnswer(answer)}
                             >

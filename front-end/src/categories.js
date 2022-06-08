@@ -1,8 +1,8 @@
 import {faCat,faMountain,faFutbol} from '@fortawesome/free-solid-svg-icons';
 
 const CATEGORIES = {
-    art: {
-        name: 'Animal',
+    animals: {
+        name: 'Animals',
         icon: faCat ,
         color: 'green',
     },

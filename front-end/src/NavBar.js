@@ -12,7 +12,7 @@ const NavBar = () => (
                 </button>
                 
                 <button className="btn btn-light ">
-                    <Link to="/Stats">Statistics</Link>
+                    <Link to="/Statistics">Statistics</Link>
                 </button>
             </Col>
         </Row>
