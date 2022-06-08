@@ -11,3 +11,39 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+h1 {
+  cursor: pointer;
+}
+.card {
+  cursor: pointer;
+  color: #fff;
+  box-shadow: 5px 5px 15px 5px #bbb;
+}
+.card--bg-green {
+  background-color: #006b77 !important;
+  border-color: #006b77 !important;
+}
+.card--bg-yellow {
+  background-color: #fbb14e !important;
+  border-color: #fbb14e !important;
+}
+.card--bg-red {
+  background-color: #f08d76 !important;
+  border-color: #f08d76 !important;
+}
+.list-group:not(.disabled) .list-group-item:hover {
+  background: #1c6ea4;
+  color: #fff;
+}
+.list-group .list-group-item {
+  cursor: pointer;
+}
+.list-group .list-group-item.correct {
+  background-color: #68d388;
+  color: #fff;
+}
+.list-group .list-group-item.incorrect {
+  background-color: #ff0028;
+  color: #fff;
+}
