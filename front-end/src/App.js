@@ -38,14 +38,16 @@ function App() {
   };
 
   return (
+    <div>
+    <Router>
+        <NavBar />
+        <Routes>
+        <Route path="/" exact />
+        <Route path="/FormPage" />
+        </Routes>
+    </Router>
       <Container>
-        <Router>
-          <NavBar />
-          <Routes>
-            <Route path="/" exact />
-            <Route path="/FormPage" />
-          </Routes>
-        </Router>
+        
         {category ? (
             <>
                 <Row className="d-flex justify-content-center mb-4">
@@ -82,7 +84,7 @@ function App() {
         {/* </Alert> */}
      
       </Container>
-
+    </div>                
   );
 }
 

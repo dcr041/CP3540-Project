@@ -45,11 +45,11 @@ const Footer = () => (
           <div className="container-fluid text-center text-md-left">
             <div className="row">
               <div className="col-md-6 mt-md-0 mt-3">
-                <h5 className="text-uppercase">MOhamed  FULL STACK DEVELOPER </h5>
+                <h5 className="text-uppercase">Nathan Atkins FULL STACK DEVELOPER </h5>
                 <ul className="list-unstyled">
                   <li>
-                  <AiOutlineMail> Mohamed.Mahmoud70@ed.cna.nl.ca</AiOutlineMail>
-                  <a>Mohamed.Mahmoud70@ed.cna.nl.ca</a>
+                  <AiOutlineMail> nathan.atkins45@ed.cna.nl.ca</AiOutlineMail>
+                  <a>nathan.atkins45@ed.cna.nl.ca</a>
                   </li>
                 </ul>
               </div>
@@ -58,11 +58,11 @@ const Footer = () => (
                 <ul className="list-unstyled">
                   <li>
                     <FaGithub> </FaGithub>
-                    <a href="https://github.com/mohamed-baioumy">Github</a>
+                    <a href="https://github.com/Venombane">Github</a>
                   </li>
                   <li>
                     <FaLinkedin></FaLinkedin>
-                    <a href="https://www.linkedin.com/in/mohamed-mahmoud-0b618112a">linkedin</a>       
+                    <a href="https://www.linkedin.com/in/nathan-atkins-3a54a71b1/">linkedin</a>       
                   </li>
                   <li>
                   <MdPictureAsPdf></MdPictureAsPdf>
