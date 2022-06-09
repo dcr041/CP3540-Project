@@ -10,9 +10,12 @@ import CATEGORIES from './categories';
 import Category from './Category';
 import GameView from './GameView';
 import NavBar from './NavBar';
+import Footer from './Footer';
 import questionsAnimals from './data/animals.json';
 import questionsGeography from './data/geography.json';
 import questionsSports from './data/sports.json';
+import { Alert } from 'bootstrap';
+
 
 function App() {
   const [category, setCategory] = useState(null);
@@ -67,6 +70,17 @@ function App() {
                 ))}
             </>
         )}
+   {/* <div style={{color:"white"}}>
+<Alert style={{color:"white",backgroundColor:"black",marginBottom:"-20px"}}> */}
+    <Router>
+          <Footer />
+          <Routes>
+            <Route path="/" exact />
+            <Route path="/FormPage" />
+          </Routes>
+        </Router>
+        {/* </Alert> */}
+     
       </Container>
 
   );
