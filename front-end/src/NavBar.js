@@ -5,18 +5,22 @@ import Col from 'react-bootstrap/Col';
 
 const NavBar = () => (
     <nav>
-        <Row>
-            <Col className="text-center">
+        <Row className="text-center">
+            <Col>
                 <button varient="dark">
                     <Link to="/">Home</Link>
                 </button>
-                
+            </Col>
+            <Col>
+                <h2>Knowledgehook</h2>
+            </Col>
+            <Col>
                 <button className="btn btn-light ">
                     <Link to="/Statistics">Statistics</Link>
                 </button>
-            </Col>
+            </Col>  
         </Row>
-        <hr className="text-white"></hr>
+        <hr className="text-dark"></hr>
     </nav>
 );
 
