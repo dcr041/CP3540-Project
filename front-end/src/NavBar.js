@@ -4,18 +4,13 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 const NavBar = () => (
-    <nav>
+    <nav className="bg-dark text-white">
         <Row className="text-center">
-            <Col>
-                <button varient="dark">
-                    <Link to="/">Home</Link>
-                </button>
+            <Col className="text-start">
+                <h2 className=" fw-bold fs-1 ms-5 mt-2">Knowledgehook</h2>
             </Col>
-            <Col>
-                <h2>Knowledgehook</h2>
-            </Col>
-            <Col>
-                <button className="btn btn-light ">
+            <Col className="text-end">
+                <button className="btn btn-dark mt-3 mr-5">
                     <Link to="/Statistics">Statistics</Link>
                 </button>
             </Col>  
