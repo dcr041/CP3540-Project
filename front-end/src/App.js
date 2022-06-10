@@ -11,10 +11,11 @@ import Category from './Category';
 import GameView from './GameView';
 import NavBar from './NavBar';
 import Footer from './Footer';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import questionsAnimals from './data/animals.json';
 import questionsGeography from './data/geography.json';
 import questionsSports from './data/sports.json';
-import { Alert } from 'bootstrap';
+import {Alert} from'react-bootstrap';
 
 
 function App() {
@@ -38,7 +39,7 @@ function App() {
   };
 
   return (
-      <Container>
+      <Container fluid>
         <Router>
           <NavBar />
           <Routes>
@@ -70,20 +71,27 @@ function App() {
                 ))}
             </>
         )}
-   {/* <div style={{color:"white"}}>
-<Alert style={{color:"white",backgroundColor:"black",marginBottom:"-20px"}}> */}
-    <Router>
-          <Footer />
-          <Routes>
-            <Route path="/" exact />
-            <Route path="/FormPage" />
-          </Routes>
-        </Router>
-        {/* </Alert> */}
-     
-      </Container>
-
+    
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+        <Router> 
+        <div style={{color:"white",height:"100px"}}>
+          <Alert style={{color:"white",backgroundColor:"black", marginBottom:"-20px"}}>
+            <Footer />
+             </Alert>
+            </div> 
+            <Routes>
+                <Route path="/" exact />
+                <Route path="/FormPage" />
+            </Routes>
+            </Router> 
+    
+    </Container>
   );
+  
 }
 
 export default App;
