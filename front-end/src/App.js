@@ -40,6 +40,8 @@ function App() {
 
   return (
       <Container fluid>
+         
+          <Alert>
         <Router>
           <NavBar />
           <Routes>
@@ -47,6 +49,9 @@ function App() {
             <Route path="/FormPage" />
           </Routes>
         </Router>
+        </Alert>
+        <br></br>
+        <br></br>
         {category ? (
             <>
                 <Row className="d-flex justify-content-center mb-4">

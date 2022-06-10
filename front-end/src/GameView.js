@@ -62,7 +62,7 @@ export default function GameView({ questions }) {
             <div>
                 {currentQuestionIndex + 1}/{questions.length}
             </div>
-            <div className="mb-4">
+            <div className="mb-4" >
                 {currentQuestion.question}
             </div>
             <div>
