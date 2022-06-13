@@ -1,7 +1,7 @@
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { BrowserRouter as Router,
   Route,
   Routes,
@@ -12,28 +12,49 @@ import GameView from './GameView';
 import NavBar from './NavBar';
 import Footer from './Footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import questionsAnimals from './data/animals.json';
-import questionsGeography from './data/geography.json';
-import questionsSports from './data/sports.json';
 import {Alert} from'react-bootstrap';
 
 
 function App() {
   const [category, setCategory] = useState(null);
   const [questions, setQuestions] = useState([]);
+  const [animalsQuestions, setAnimalsQuestions] = useState([]);
+  const [geographyQuestions, setGeographyQuestions] = useState([]);
+  const [sportsQuestions, setSportsQuestions] = useState([]);
+
+  useEffect(() => {
+    fetch('/api/animals')
+    .then((response) => response.json())
+    .then(setAnimalsQuestions)
+}, []);
+
+useEffect(() => {
+    fetch('/api/geography')
+    .then((response) => response.json())
+    .then(setGeographyQuestions)
+}, []);
+
+useEffect(() => {
+    fetch('/api/sports')
+    .then((response) => response.json())
+    .then(setSportsQuestions)
+}, []);
 
   const setCurrentCategory = category => {
     setCategory(category);
 
     switch (category.name) {
         case CATEGORIES.animals.name:
-            setQuestions(questionsAnimals);
+            setAnimalsQuestions(animalsQuestions);
+            setQuestions(animalsQuestions);
             break;
         case CATEGORIES.geography.name:
-            setQuestions(questionsGeography);
+            setGeographyQuestions(geographyQuestions);
+            setQuestions(geographyQuestions);
             break;
         case CATEGORIES.sports.name:
-            setQuestions(questionsSports);
+            setSportsQuestions(sportsQuestions);
+            setQuestions(sportsQuestions);
             break;
     }
   };
