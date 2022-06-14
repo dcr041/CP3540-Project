@@ -65,6 +65,20 @@ app.get('/api/sports', async (req, res) => {
     }
 });
 
+// app.get("/api/animals", (req, res) => {
+
+//     const today = new Date();
+   
+//        today.setHours(-2,-30,0,0)
+//        animals.findOne({'date': [today]}, (err, result) => {
+//            if (err) {
+//                res.json(err);
+//            } else {
+//                res.json(result);
+//            }
+//        });
+//    });
+
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname + '/build/index.html'));
 });

@@ -55,35 +55,36 @@ useEffect(() => {
 });
   const setCurrentCategory = category => {
     setCategory(category);
-
+    const temp = [];
     switch (category.name) {
         case CATEGORIES.animals.name:
             setAnimalsQuestions(animalsQuestions);
+            animalsQuestions.sort(function (a, b) {return Math.random() - 0.5});
             setQuestions(animalsQuestions);
             break;
         case CATEGORIES.geography.name:
             setGeographyQuestions(geographyQuestions);
+            geographyQuestions.sort(function (a, b) {return Math.random() - 0.5});
             setQuestions(geographyQuestions);
             break;
         case CATEGORIES.sports.name:
             setSportsQuestions(sportsQuestions);
+            sportsQuestions.sort(function (a, b) {return Math.random() - 0.5});
             setQuestions(sportsQuestions);
             break;
     }
   };
 
   return (
-      <Container fluid>
-         
-          <Alert>
+    <>
         <Router>
-          <NavBar />
-          <Routes>
-            <Route path="/" exact />
-            <Route path="/FormPage" />
-          </Routes>
+            <NavBar />
+            <Routes>
+                <Route path="/FormPage" />
+            </Routes>
         </Router>
-        </Alert>
+        <Container fluid>
+        
         <br></br>
         <br></br>
        <div> timer ={second}</div>
@@ -117,19 +118,12 @@ useEffect(() => {
     <br></br>
     <br></br>
     <br></br>
-        <Router> 
-        <div style={{color:"white",height:"100px"}}>
-          <Alert style={{color:"white",backgroundColor:"black", marginBottom:"-20px"}}>
-            <Footer />
-             </Alert>
-            </div> 
-            <Routes>
-                <Route path="/" exact />
-                <Route path="/FormPage" />
-            </Routes>
-            </Router> 
-    
+
     </Container>
+    <Alert style={{color:"white",backgroundColor:"black", marginBottom:"-20px"}}>
+        <Footer />
+    </Alert>
+    </>
   );
   
 }
