@@ -38,9 +38,15 @@ export default function GameView({ questions }) {
         setIsSubmitting(true);
         setSelectedAnswer(answer);
 
+        const timer =  setTimeout(() => {
+
+        }, 10000);
         if (answer === currentQuestion.correct_answer) {
             setCountCorrectAnswers(countCorrectAnswers + 1);
         }
+        else if( timer == 0){
+            setCountCorrectAnswers(countCorrectAnswers);
+        };
 
         setTimeout(() => {
             const newQuestionIndex = currentQuestionIndex + 1;
@@ -73,6 +79,7 @@ export default function GameView({ questions }) {
                         const isSelectedAndSubmitting = isSubmitting && answer === selectedAnswer;
 
                         return (
+                           
                             <ListGroup.Item
                                 key={i}
                                 className={classNames({
