@@ -26,8 +26,10 @@ export default function GameView({ questions }) {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [gameOver, setGameOver] = useState(false);
 
+    const random = Math.floor(Math.random() * (10));
+
     useEffect(() => {
-        const question = questions[currentQuestionIndex];
+        const question = questions[random];
         setCurrentQuestion(question);
         setAnswers(shuffleAnswers(question));
     }, [currentQuestionIndex]);
@@ -43,7 +45,7 @@ export default function GameView({ questions }) {
         setTimeout(() => {
             const newQuestionIndex = currentQuestionIndex + 1;
 
-            if (newQuestionIndex === questions.length) {
+            if (newQuestionIndex === 5) {
                 setGameOver(true);
             } else {
                 setCurrentQuestionIndex(newQuestionIndex);
@@ -60,7 +62,7 @@ export default function GameView({ questions }) {
     return (
         <>
             <div>
-                {currentQuestionIndex + 1}/{questions.length}
+                {currentQuestionIndex + 1}/{5}
             </div>
             <div className="mb-4" >
                 {currentQuestion.question}
