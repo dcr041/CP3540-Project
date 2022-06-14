@@ -23,36 +23,23 @@ function App() {
   const [sportsQuestions, setSportsQuestions] = useState([]);
 
   useEffect(() => {
-    fetch('/api/animals')
-    .then((response) => response.json())
-    .then(setAnimalsQuestions)
-}, []);
+        fetch('/api/animals')
+        .then((response) => response.json())
+        .then(setAnimalsQuestions)
+    }, []);
 
-useEffect(() => {
-    fetch('/api/geography')
-    .then((response) => response.json())
-    .then(setGeographyQuestions)
-}, []);
+    useEffect(() => {
+        fetch('/api/geography')
+        .then((response) => response.json())
+        .then(setGeographyQuestions)
+    }, []);
 
-useEffect(() => {
-    fetch('/api/sports')
-    .then((response) => response.json())
-    .then(setSportsQuestions)
-}, []);
+    useEffect(() => {
+        fetch('/api/sports')
+        .then((response) => response.json())
+        .then(setSportsQuestions)
+    }, []);
 
-const [second, setSecond]= useState(10);
-var timer;
-useEffect(() => {
-    timer =  setInterval(() => {
-
-        setSecond(second-1);
-        if (second===0){
-            setSecond(10);
-        };
-    }, 1000);
-    return ()=> clearInterval(timer);
-
-});
   const setCurrentCategory = category => {
     setCategory(category);
     const temp = [];
@@ -87,7 +74,7 @@ useEffect(() => {
         
         <br></br>
         <br></br>
-       <div> timer ={second}</div>
+
         {category ? (
             <>
                 <Row className="d-flex justify-content-center mb-4">
