@@ -33,17 +33,35 @@ export default function GameView({ questions }) {
         setAnswers(shuffleAnswers(question));
     }, [currentQuestionIndex]);
 
+    const [second, setSecond]= useState(10);
+    var timer;
+    useEffect(() => {
+        timer =  setInterval(() => {
+            setSecond(second-1);
+            if (second===0){
+                setSecond(10);
+                const newQuestionIndex = currentQuestionIndex + 1;
+                setCurrentQuestionIndex(newQuestionIndex);
+                setIsSubmitting(false);
+                setSelectedAnswer(null);
+            if (newQuestionIndex === 5) {
+                setGameOver(true);
+            }
+            };
+        }, 1000);
+        return ()=> clearInterval(timer);
+    });
+
     const selectAnswer = answer => {
         setIsSubmitting(true);
         setSelectedAnswer(answer);
+        setSecond(10);
 
         if (answer === currentQuestion.correct_answer) {
             setCountCorrectAnswers(countCorrectAnswers + 1);
         }
-
         setTimeout(() => {
             const newQuestionIndex = currentQuestionIndex + 1;
-
             if (newQuestionIndex === 5) {
                 setGameOver(true);
             } else {
@@ -66,6 +84,7 @@ export default function GameView({ questions }) {
             <div className="mb-4" >
                 {currentQuestion.question}
             </div>
+            <div > timer ={second}</div>
             <div>
                 <ListGroup className={classNames({ disabled: isSubmitting })}>
                     {answers.map((answer, i) => {

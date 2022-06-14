@@ -40,6 +40,19 @@ useEffect(() => {
     .then(setSportsQuestions)
 }, []);
 
+const [second, setSecond]= useState(10);
+var timer;
+useEffect(() => {
+    timer =  setInterval(() => {
+
+        setSecond(second-1);
+        if (second===0){
+            setSecond(10);
+        };
+    }, 1000);
+    return ()=> clearInterval(timer);
+
+});
   const setCurrentCategory = category => {
     setCategory(category);
     const temp = [];
@@ -74,6 +87,7 @@ useEffect(() => {
         
         <br></br>
         <br></br>
+       <div> timer ={second}</div>
         {category ? (
             <>
                 <Row className="d-flex justify-content-center mb-4">
