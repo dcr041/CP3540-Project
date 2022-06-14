@@ -9,7 +9,6 @@ const shuffleAnswers = question => {
     for (let index = 0; index < answers.length; index++) {
         const random = Math.floor(Math.random() * index);
         const tmp = answers[index];
-        console.log(tmp);
         answers[index] = answers[random];
         answers[random] = tmp;
     }
@@ -29,7 +28,7 @@ export default function GameView({ questions }) {
     const random = Math.floor(Math.random() * (10));
 
     useEffect(() => {
-        const question = questions[random];
+        const question = questions[currentQuestionIndex];
         setCurrentQuestion(question);
         setAnswers(shuffleAnswers(question));
     }, [currentQuestionIndex]);
