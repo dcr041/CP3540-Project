@@ -23,24 +23,23 @@ function App() {
   const [sportsQuestions, setSportsQuestions] = useState([]);
 
   useEffect(() => {
-    fetch('/api/animals')
-    .then((response) => response.json())
-    .then(setAnimalsQuestions)
-}, []);
+        fetch('/api/animals')
+        .then((response) => response.json())
+        .then(setAnimalsQuestions)
+    }, []);
 
-useEffect(() => {
-    fetch('/api/geography')
-    .then((response) => response.json())
-    .then(setGeographyQuestions)
-}, []);
+    useEffect(() => {
+        fetch('/api/geography')
+        .then((response) => response.json())
+        .then(setGeographyQuestions)
+    }, []);
 
-useEffect(() => {
-    fetch('/api/sports')
-    .then((response) => response.json())
-    .then(setSportsQuestions)
-}, []);
+    useEffect(() => {
+        fetch('/api/sports')
+        .then((response) => response.json())
+        .then(setSportsQuestions)
+    }, []);
 
-;
   const setCurrentCategory = category => {
     setCategory(category);
     const temp = [];
