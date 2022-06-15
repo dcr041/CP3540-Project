@@ -62,6 +62,7 @@ export default function GameView({ questions }) {
             const newQuestionIndex = currentQuestionIndex + 1;
             if (newQuestionIndex === 5) {
                 setGameOver(true);
+           
             } else {
                 setCurrentQuestionIndex(newQuestionIndex);
                 setIsSubmitting(false);

@@ -41,6 +41,8 @@ function App() {
     }, []);
 
   const setCurrentCategory = category => {
+
+
     setCategory(category);
     switch (category.name) {
         case CATEGORIES.animals.name:
@@ -58,7 +60,9 @@ function App() {
             shuffle(sportsQuestions);
             setQuestions(sportsQuestions);
             break;
+
     }
+
   };
 
   return (
