@@ -3,7 +3,7 @@ import {faCat,faMountain,faFutbol} from '@fortawesome/free-solid-svg-icons';
 var CATEGORIES = "";
 
 const date = new Date();
-if (date.getDay() === 2) {
+if (date.getDay() === 3) {
     CATEGORIES = {
         animals: {
             name: 'Animals',
