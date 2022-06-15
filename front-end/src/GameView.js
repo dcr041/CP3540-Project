@@ -7,7 +7,7 @@ const shuffleAnswers = question => {
     const answers = [question.correct_answer, ...question.incorrect_answers];
 
     for (let index = 0; index < answers.length; index++) {
-        const random = Math.floor(Math.random() * index);
+        var random = Math.floor(Math.random() * answers.length);
         const tmp = answers[index];
         answers[index] = answers[random];
         answers[random] = tmp;
@@ -24,8 +24,6 @@ export default function GameView({ questions }) {
     const [countCorrectAnswers, setCountCorrectAnswers] = useState(0);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [gameOver, setGameOver] = useState(false);
-
-    const random = Math.floor(Math.random() * (10));
 
     useEffect(() => {
         const question = questions[currentQuestionIndex];
