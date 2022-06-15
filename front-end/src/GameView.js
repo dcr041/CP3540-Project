@@ -34,20 +34,22 @@ export default function GameView({ questions }) {
     const [second, setSecond]= useState(10);
     var timer;
     useEffect(() => {
-        timer =  setInterval(() => {
-            setSecond(second-1);
-            if (second===0){
-                setSecond(10);
-                const newQuestionIndex = currentQuestionIndex + 1;
-                setCurrentQuestionIndex(newQuestionIndex);
-                setIsSubmitting(false);
-                setSelectedAnswer(null);
-            if (newQuestionIndex === 5) {
-                setGameOver(true);
-            }
-            };
-        }, 1000);
-        return ()=> clearInterval(timer);
+        if (gameOver == false) {
+            timer =  setInterval(() => {
+                setSecond(second-1);
+                if (second===0){
+                    setSecond(10);
+                    const newQuestionIndex = currentQuestionIndex + 1;
+                    setCurrentQuestionIndex(newQuestionIndex);
+                    setIsSubmitting(false);
+                    setSelectedAnswer(null);
+                    if (newQuestionIndex === 5) {
+                        setGameOver(true);
+                    }
+                };
+            }, 1000);
+            return ()=> clearInterval(timer);
+        }
     });
 
     const selectAnswer = answer => {
