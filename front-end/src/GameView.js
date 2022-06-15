@@ -84,7 +84,7 @@ export default function GameView({ questions }) {
             <div className="mb-4" >
                 {currentQuestion.question}
             </div>
-            <div > timer ={second}</div>
+            <div className='text-end'> {currentQuestion.difficulty.toUpperCase()} | TIME LEFT: {second}</div>
             <div>
                 <ListGroup className={classNames({ disabled: isSubmitting })}>
                     {answers.map((answer, i) => {
