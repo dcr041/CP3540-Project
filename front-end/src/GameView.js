@@ -1,7 +1,10 @@
 import { useState, useEffect } from 'react';
 import ListGroup from 'react-bootstrap/ListGroup';
 import classNames from 'classnames';
-import Statistics from './Statistics';
+import  { Navigate } from 'react-router-dom';
+import { AddStats } from './addStats';
+
+var end = 0;
 
 const shuffleAnswers = question => {
     const answers = [question.correct_answer, ...question.incorrect_answers];
@@ -25,6 +28,8 @@ export default function GameView({ questions }) {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [gameOver, setGameOver] = useState(false);
 
+    
+
     useEffect(() => {
         const question = questions[currentQuestionIndex];
         setCurrentQuestion(question);
@@ -34,7 +39,7 @@ export default function GameView({ questions }) {
     const [second, setSecond]= useState(10);
     var timer;
     useEffect(() => {
-        if (gameOver == false) {
+        if (gameOver === false) {
             timer =  setInterval(() => {
                 setSecond(second-1);
                 if (second===0){
@@ -74,11 +79,15 @@ export default function GameView({ questions }) {
     };
 
     if (gameOver) {
-        return <Statistics countCorrectAnswers={countCorrectAnswers} />;
+        if (end == 0){
+            AddStats(countCorrectAnswers);
+            end += 1;
+        } 
     }
 
     return (
         <>
+            { gameOver ? (<Navigate push to="/Statistics"/>) : null }
             <div>
                 {currentQuestionIndex + 1}/{5}
             </div>
