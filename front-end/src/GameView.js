@@ -79,7 +79,7 @@ export default function GameView({ questions }) {
     };
 
     if (gameOver) {
-        if (end == 0){
+        if (end === 0){
             AddStats(countCorrectAnswers);
             end += 1;
         } 
