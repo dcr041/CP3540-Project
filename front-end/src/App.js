@@ -15,14 +15,16 @@ function App() {
   CheckNewUser();
  
   return (
-    <Router>
+    <main>
+        <Router >
         <NavBar />
-        <Routes>
-            <Route path="/" element={<Start />} exact />
-            <Route path="/Statistics" element={<Statistics />} />
-        </Routes>
-        <Footer /> 
-    </Router>
+            <Routes>
+                <Route path="/" element={<Start />} exact />
+                <Route path="/Statistics" element={<Statistics />} />
+            </Routes>
+        </Router>
+      <Footer /> 
+    </main>
   );
 }
 

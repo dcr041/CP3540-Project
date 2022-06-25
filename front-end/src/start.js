@@ -15,9 +15,9 @@ function Start() {
   const [animalsQuestions, setAnimalsQuestions] = useState([]);
   const [geographyQuestions, setGeographyQuestions] = useState([]);
   const [sportsQuestions, setSportsQuestions] = useState([]);
-  if (user.date != new Date().getDay()) {
+  if (user.date !== new Date().getDay()) {
     user.todayScore = 0;
-    // user.todayCategory = "";
+    user.todayCategory = "";
     localStorage.setItem("user", JSON.stringify(user));
   }
     
