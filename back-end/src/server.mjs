@@ -27,16 +27,18 @@ httpsServer.listen(443, () => {
 // const http = require('http');
 
 // serve the API on 80 (HTTP) port
-// const httpServer = http.createServer(app);
+const httpServer = http.createServer(app);
 
-// httpServer.listen(80, () => {
-//     console.log('HTTP Server running on port 80');
-// });
+httpServer.listen(80, () => {
+    console.log('HTTP Server running on port 80');
+});
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 app.use(express.static(path.join(__dirname, '/build')));
+
+app.use(express.json());
 
 app.get('/api/sports', async (req, res) => {
     try {
