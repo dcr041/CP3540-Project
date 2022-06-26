@@ -33,6 +33,11 @@ httpServer.listen(80, () => {
     console.log('HTTP Server running on port 80');
 });
 
+app.enable('trust proxy')
+app.use((req, res, next) => {
+    req.secure ? next() : res.redirect('https://' + req.headers.host + req.url)
+})
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
