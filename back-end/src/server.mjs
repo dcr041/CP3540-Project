@@ -14,8 +14,8 @@ import fs from 'fs';
 
 // serve the API with signed certificate on 443 (SSL/HTTPS) port
 const httpsServer = https.createServer({
-  key: fs.readFileSync('/etc/letsencrypt/live/quizarama.ca/privkey.pem'),
-  cert: fs.readFileSync('/etc/letsencrypt/live/quizarama.ca/fullchain.pem'),
+    cert: fs.readFileSync('/etc/letsencrypt/live/quizarama.ca/fullchain.pem'),
+    key: fs.readFileSync('/etc/letsencrypt/live/quizarama.ca/privkey.pem'),
 }, app);
 
 httpsServer.listen(443, () => {
