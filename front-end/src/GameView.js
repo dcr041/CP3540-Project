@@ -88,13 +88,13 @@ export default function GameView({ questions }) {
     return (
         <>
             { gameOver ? (<Navigate push to="/Statistics"/>) : null }
-            <div>
+            <div className='text-white'>
                 {currentQuestionIndex + 1}/{5}
             </div>
-            <div className="mb-4" >
+            <div className="mb-4 text-white" >
                 {currentQuestion.question}
             </div>
-            <div className='text-end'> {currentQuestion.difficulty.toUpperCase()} | TIME LEFT: {second}</div>
+            <div className='text-end text-white'> {currentQuestion.difficulty.toUpperCase()} | TIME LEFT: {second}</div>
             <div>
                 <ListGroup className={classNames({ disabled: isSubmitting })}>
                     {answers.map((answer, i) => {
