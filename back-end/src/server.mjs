@@ -8,6 +8,8 @@ import http from 'http';
 import https from 'https';
 import fs from 'fs';
 
+const app = express();
+
 // import packages
 // const https = require('https');
 // const fs = require('fs');
@@ -30,8 +32,6 @@ const httpServer = http.createServer(app);
 httpServer.listen(80, () => {
     console.log('HTTP Server running on port 80');
 });
-
-const app = express();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
