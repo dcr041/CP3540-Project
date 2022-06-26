@@ -78,33 +78,29 @@ export function Statistics() {
              (
             <>
             <Container>
-                <Col className="text-center fw-bold">Sports</Col>
                 <Row>
-                    <Col className="text-start fw-bold">
-                        Total Score:
+                    <Col className='text-center'>
+                        <Col className="fw-bold">Sports</Col>
+                        <Col className="fw-normal">Total Score</Col>
+                        <Col className="fw-light">
+                            {user.sports.right}/{user.sports.wrong}
+                        </Col>
                     </Col>
-                    <Col className="text-end">
-                        {user.sports.right}/{user.sports.wrong}
-                    </Col>
-                </Row>
-
-                <Col className="text-center fw-bold">Board Games</Col>
-                <Row>
-                    <Col className="text-start fw-bold">
-                        Total Score:
-                    </Col>
-                    <Col className="text-end">
-                        {user.boardGames.right}/{user.boardGames.wrong}
-                    </Col>
-                </Row>
                 
-                <Col className="text-center fw-bold">Video Games</Col>
-                <Row>
-                    <Col className="text-start fw-bold">
-                        Total Score:
+                    <Col className='text-center'>
+                        <Col className="fw-bold">Board Games</Col>
+                        <Col className="fw-normal">Total Score:</Col>
+                        <Col className='fw-light'>
+                            {user.boardGames.right}/{user.boardGames.wrong}
+                        </Col>
                     </Col>
-                    <Col className="text-end">
-                        {user.videoGames.right}/{user.videoGames.wrong}
+                
+                    <Col className='text-center'>
+                        <Col className="fw-bold">Video Games</Col>
+                        <Col className="fw-normal">Total Score:</Col>
+                        <Col className="fw-light">
+                            {user.videoGames.right}/{user.videoGames.wrong}
+                        </Col>
                     </Col>
                 </Row>
             </Container>
@@ -117,33 +113,29 @@ export function Statistics() {
              (
             <>
             <Container>
-                <Col className="text-center fw-bold">Music</Col>
                 <Row>
-                    <Col className="text-start fw-bold">
-                        Total Score:
+                    <Col className='text-center'>
+                        <Col className="fw-bold">Music</Col>
+                        <Col className="fw-normal">Total Score:</Col>
+                        <Col className="fw-light">
+                            {user.music.right}/{user.music.wrong}
+                        </Col>
                     </Col>
-                    <Col className="text-end">
-                        {user.music.right}/{user.music.wrong}
-                    </Col>
-                </Row>
-
-                <Col className="text-center fw-bold">Celebrities</Col>
-                <Row>
-                    <Col className="text-start fw-bold">
-                        Total Score:
-                    </Col>
-                    <Col className="text-end">
-                        {user.celebrities.right}/{user.celebrities.wrong}
-                    </Col>
-                </Row>
                 
-                <Col className="text-center fw-bold">Art</Col>
-                <Row>
-                    <Col className="text-start fw-bold">
-                        Total Score:
+                    <Col className='text-center'>
+                        <Col className="fw-bold">Celebrities</Col>
+                        <Col className="fw-normal">Total Score:</Col>
+                        <Col className="fw-light">
+                            {user.celebrities.right}/{user.celebrities.wrong}
+                        </Col>
                     </Col>
-                    <Col className="text-end">
-                        {user.art.right}/{user.art.wrong}
+                    
+                    <Col className='text-center'>
+                        <Col className="fw-bold">Art</Col>
+                        <Col className="fw-normal">Total Score:</Col>
+                        <Col className="fw-light">
+                            {user.art.right}/{user.art.wrong}
+                        </Col>
                     </Col>
                 </Row>
             </Container>
@@ -156,33 +148,29 @@ export function Statistics() {
              (
             <>
             <Container>
-                <Col className="text-center fw-bold">Science & Nature</Col>
                 <Row>
-                    <Col className="text-start fw-bold">
-                        Total Score:
+                    <Col className='text-center'>
+                        <Col className="fw-bold">Science & Nature</Col>
+                        <Col className="fw-normal">Total Score:</Col>
+                        <Col className="fw-light">
+                            {user.scienceNature.right}/{user.scienceNature.wrong}
+                        </Col>
                     </Col>
-                    <Col className="text-end">
-                        {user.scienceNature.right}/{user.scienceNature.wrong}
-                    </Col>
-                </Row>
 
-                <Col className="text-center fw-bold">Geography</Col>
-                <Row>
-                    <Col className="text-start fw-bold">
-                        Total Score:
+                    <Col className='text-center'>
+                        <Col className="fw-bold">Geography</Col>
+                        <Col className="fw-normal">Total Score:</Col>
+                        <Col className="fw-light">
+                            {user.geography.right}/{user.geography.wrong}
+                        </Col>
                     </Col>
-                    <Col className="text-end">
-                        {user.geography.right}/{user.geography.wrong}
-                    </Col>
-                </Row>
                 
-                <Col className="text-center fw-bold">Animals</Col>
-                <Row>
-                    <Col className="text-start fw-bold">
-                        Total Score:
-                    </Col>
-                    <Col className="text-end">
-                        {user.animals.right}/{user.animals.wrong}
+                    <Col className='text-center'>
+                        <Col className="fw-bold">Animals</Col>
+                        <Col className="fw-normal">Total Score:</Col>
+                        <Col className="fw-light">
+                            {user.animals.right}/{user.animals.wrong}
+                        </Col>
                     </Col>
                 </Row>
             </Container>
@@ -195,33 +183,29 @@ export function Statistics() {
              (
             <>
             <Container>
-                <Col className="text-center fw-bold">Vehicles</Col>
                 <Row>
-                    <Col className="text-start fw-bold">
-                        Total Score:
+                    <Col className='text-center'>
+                        <Col className="fw-bold">Vehicles</Col>
+                        <Col className="fw-normal">Total Score:</Col>
+                        <Col className="fw-light">
+                            {user.vehicles.right}/{user.vehicles.wrong}
+                        </Col>
                     </Col>
-                    <Col className="text-end">
-                        {user.vehicles.right}/{user.vehicles.wrong}
-                    </Col>
-                </Row>
-
-                <Col className="text-center fw-bold">Mathematics</Col>
-                <Row>
-                    <Col className="text-start fw-bold">
-                        Total Score:
-                    </Col>
-                    <Col className="text-end">
-                        {user.mathematics.right}/{user.mathematics.wrong}
-                    </Col>
-                </Row>
                 
-                <Col className="text-center fw-bold">Gadgets & Computers</Col>
-                <Row>
-                    <Col className="text-start fw-bold">
-                        Total Score:
+                    <Col className='text-center'>
+                        <Col className="fw-bold">Mathematics</Col>
+                        <Col className="fw-normal">Total Score:</Col>
+                        <Col className="fw-light">
+                            {user.mathematics.right}/{user.mathematics.wrong}
+                        </Col>
                     </Col>
-                    <Col className="text-end">
-                        {user.gadgetsComputers.right}/{user.gadgetsComputers.wrong}
+                
+                    <Col className='text-center'>
+                        <Col className="fw-bold">Gadgets & Computers</Col>
+                        <Col className="fw-normal">Total Score:</Col>
+                        <Col className="fw-light">
+                            {user.gadgetsComputers.right}/{user.gadgetsComputers.wrong}
+                        </Col>
                     </Col>
                 </Row>
             </Container>
@@ -233,34 +217,30 @@ export function Statistics() {
             { checkDate.getDay() === 4 ?
              (
             <>
-            <Container>
-                <Col className="text-center fw-bold">Politics</Col>
+            <Container>  
                 <Row>
-                    <Col className="text-start fw-bold">
-                        Total Score:
+                    <Col className='text-center'>
+                        <Col className="text-center fw-bold">Politics</Col>
+                        <Col className="text-start fw-bold">Total Score:</Col>
+                        <Col className="text-end">
+                            {user.politics.right}/{user.politics.wrong}
+                        </Col>
                     </Col>
-                    <Col className="text-end">
-                        {user.politics.right}/{user.politics.wrong}
-                    </Col>
-                </Row>
-
-                <Col className="text-center fw-bold">History & Mythology</Col>
-                <Row>
-                    <Col className="text-start fw-bold">
-                        Total Score:
-                    </Col>
-                    <Col className="text-end">
-                        {user.historyMythology.right}/{user.historyMythology.wrong}
-                    </Col>
-                </Row>
                 
-                <Col className="text-center fw-bold">General Knowledge</Col>
-                <Row>
-                    <Col className="text-start fw-bold">
-                        Total Score:
+                    <Col className='text-center'>
+                        <Col className="text-center fw-bold">History & Mythology</Col>
+                        <Col className="text-start fw-bold">Total Score:</Col>
+                        <Col className="text-end">
+                            {user.historyMythology.right}/{user.historyMythology.wrong}
+                        </Col>
                     </Col>
-                    <Col className="text-end">
-                        {user.generalKnowledge.right}/{user.generalKnowledge.wrong}
+                
+                    <Col className='text-center'>
+                        <Col className="text-center fw-bold">General Knowledge</Col>
+                        <Col className="text-start fw-bold">Total Score:</Col>
+                        <Col className="text-end">
+                            {user.generalKnowledge.right}/{user.generalKnowledge.wrong}
+                        </Col>
                     </Col>
                 </Row>
             </Container>
@@ -273,33 +253,29 @@ export function Statistics() {
              (
             <>
             <Container>
-                <Col className="text-center fw-bold">Film</Col>
                 <Row>
-                    <Col className="text-start fw-bold">
-                        Total Score:
+                    <Col className='text-center'>
+                        <Col className="fw-bold">Film</Col>
+                        <Col className="fw-normal">Total Score:</Col>
+                        <Col className="fw-light">
+                            {user.film.right}/{user.film.wrong}
+                        </Col>
                     </Col>
-                    <Col className="text-end">
-                        {user.film.right}/{user.film.wrong}
-                    </Col>
-                </Row>
-
-                <Col className="text-center fw-bold">Cartoons & Animation</Col>
-                <Row>
-                    <Col className="text-start fw-bold">
-                        Total Score:
-                    </Col>
-                    <Col className="text-end">
-                        {user.cartoonsAnimation.right}/{user.cartoonsAnimation.wrong}
-                    </Col>
-                </Row>
                 
-                <Col className="text-center fw-bold">Television</Col>
-                <Row>
-                    <Col className="text-start fw-bold">
-                        Total Score:
+                    <Col className='text-center'>
+                        <Col className="fw-bold">Cartoons & Animation</Col>
+                        <Col className="fw-normal">Total Score:</Col>
+                        <Col className="fw-light">
+                            {user.cartoonsAnimation.right}/{user.cartoonsAnimation.wrong}
+                        </Col>
                     </Col>
-                    <Col className="text-end">
-                        {user.television.right}/{user.television.wrong}
+                
+                    <Col className='text-center'>
+                        <Col className="fw-bold">Television</Col>
+                        <Col className="fw-normal">Total Score:</Col>
+                        <Col className="fw-light">
+                            {user.television.right}/{user.television.wrong}
+                        </Col>
                     </Col>
                 </Row>
             </Container>
@@ -313,33 +289,29 @@ export function Statistics() {
              (
             <>
             <Container>
-                <Col className="text-center fw-bold">Comics</Col>
                 <Row>
-                    <Col className="text-start fw-bold">
-                        Total Score:
+                    <Col className='text-center'>
+                        <Col className="fw-bold">Comics</Col>
+                        <Col className="fw-normal">Total Score:</Col>
+                        <Col className="fw-light">
+                            {user.comics.right}/{user.comics.wrong}
+                        </Col>
                     </Col>
-                    <Col className="text-end">
-                        {user.comics.right}/{user.comics.wrong}
+                
+                    <Col className='text-center'>
+                        <Col className="fw-bold">Books</Col>
+                        <Col className="fw-normal">Total Score:</Col>
+                        <Col className="fw-light">
+                            {user.books.right}/{user.books.wrong}
+                        </Col>
                     </Col>
-                </Row>
-
-                <Col className="text-center fw-bold">Books</Col>
-                <Row>
-                    <Col className="text-start fw-bold">
-                        Total Score:
-                    </Col>
-                    <Col className="text-end">
-                        {user.books.right}/{user.books.wrong}
-                    </Col>
-                </Row>
-
-                <Col className="text-center fw-bold">Anime & Manga</Col>
-                <Row>
-                    <Col className="text-start fw-bold">
-                        Total Score:
-                    </Col>
-                    <Col className="text-end">
-                        {user.animeManga.right}/{user.animeManga.wrong}
+               
+                    <Col className='text-center'>
+                        <Col className="fw-bold">Anime & Manga</Col>
+                        <Col className="fw-normal">Total Score:</Col>
+                        <Col className="fw-light">
+                            {user.animeManga.right}/{user.animeManga.wrong}
+                        </Col>
                     </Col>
                 </Row>
             </Container>

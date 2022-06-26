@@ -27,7 +27,7 @@ if (date.getDay() === 0) {
 } else if (date.getDay() === 1) {
     CATEGORIES = {
         music: {
-            name: 'Music',
+            name: 'Music, Musicals & Theatre',
             icon: faMusic,
             color: 'green',
         },
@@ -127,7 +127,7 @@ if (date.getDay() === 0) {
             color: 'yellow',
         },
         animeManga: {
-            name: 'Anime & Manga',
+            name: 'Japanese Anime & Manga',
             icon: faBookOpen,
             color: 'red',
         },
