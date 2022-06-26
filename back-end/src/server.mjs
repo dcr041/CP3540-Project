@@ -4,13 +4,13 @@ import {MongoClient} from 'mongodb';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-// import http from 'http';
-// import https from 'https';
-// import fs from 'fs';
+import http from 'http';
+import https from 'https';
+import fs from 'fs';
 
 // import packages
-const https = require('https');
-const fs = require('fs');
+// const https = require('https');
+// const fs = require('fs');
 
 // serve the API with signed certificate on 443 (SSL/HTTPS) port
 const httpsServer = https.createServer({
@@ -22,7 +22,7 @@ httpsServer.listen(443, () => {
     console.log('HTTPS Server running on port 443');
 });
 
-const http = require('http');
+// const http = require('http');
 
 // serve the API on 80 (HTTP) port
 const httpServer = http.createServer(app);
