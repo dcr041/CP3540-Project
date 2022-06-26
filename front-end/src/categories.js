@@ -1,49 +1,52 @@
-import {faCat,faMountain,faFutbol} from '@fortawesome/free-solid-svg-icons';
+import {faFutbol, faChess, faGamepad, faMusic, faPerson, faPaintbrush, faTree,
+    faMountain, faCat, faCarSide, faCalculator, faComputer, faHandshake,
+    faMonument, faBrain, faFilm, faPen, faTv, faScroll, faBook, faBookOpen,
+} from '@fortawesome/free-solid-svg-icons';
 
 var CATEGORIES = "";
 
 const date = new Date();
 if (date.getDay() === 0) {
     CATEGORIES = {
-        animals: {
-            name: 'Animals',
-            icon: faCat ,
-            color: 'green',
-        },
-        geography: {
-            name: 'Geography',
-            icon: faMountain,
-            color: 'yellow',
-        },
         sports: {
             name: 'Sports',
             icon: faFutbol,
+            color: 'green',
+        },
+        boardGames: {
+            name: 'Board Games',
+            icon: faChess,
+            color: 'yellow',
+        },
+        videoGames: {
+            name: 'Video Games',
+            icon: faGamepad,
             color: 'red',
         },
     };
 } else if (date.getDay() === 1) {
     CATEGORIES = {
-        animals: {
-            name: 'Animals',
-            icon: faCat ,
+        music: {
+            name: 'Music',
+            icon: faMusic,
             color: 'green',
         },
-        geography: {
-            name: 'Geography',
-            icon: faMountain,
+        celebrities: {
+            name: 'Celebrities',
+            icon: faPerson,
             color: 'yellow',
         },
-        sports: {
-            name: 'Sports',
-            icon: faFutbol,
+        art: {
+            name: 'Art',
+            icon: faPaintbrush,
             color: 'red',
         },
     };
 } else if (date.getDay() === 2) {
     CATEGORIES = {
-        animals: {
-            name: 'Animals',
-            icon: faCat ,
+        scienceNature: {
+            name: 'Science & Nature',
+            icon: faTree,
             color: 'green',
         },
         geography: {
@@ -51,99 +54,81 @@ if (date.getDay() === 0) {
             icon: faMountain,
             color: 'yellow',
         },
-        sports: {
-            name: 'Sports',
-            icon: faFutbol,
-            color: 'red',
-        },
-    };
-} else if (date.getDay() === 2) {
-    CATEGORIES = {
         animals: {
             name: 'Animals',
-            icon: faCat ,
-            color: 'green',
-        },
-        geography: {
-            name: 'Geography',
-            icon: faMountain,
-            color: 'yellow',
-        },
-        sports: {
-            name: 'Sports',
-            icon: faFutbol,
+            icon: faCat,
             color: 'red',
         },
     };
 } else if (date.getDay() === 3) {
     CATEGORIES = {
-        animals: {
-            name: 'Animals',
-            icon: faCat ,
+        vehicles: {
+            name: 'Vehicles',
+            icon: faCarSide,
             color: 'green',
         },
-        geography: {
-            name: 'Geography',
-            icon: faMountain,
+        mathematics: {
+            name: 'Mathematics',
+            icon: faCalculator,
             color: 'yellow',
         },
-        sports: {
-            name: 'Sports',
-            icon: faFutbol,
+        gadgetsComputers: {
+            name: 'Gadgets & Computers',
+            icon: faComputer,
             color: 'red',
         },
     };
 } else if (date.getDay() === 4) {
     CATEGORIES = {
-        animals: {
-            name: 'Animals',
-            icon: faCat ,
+        politics: {
+            name: 'Politics',
+            icon: faHandshake,
             color: 'green',
         },
-        geography: {
-            name: 'Geography',
-            icon: faMountain,
+        historyMythology: {
+            name: 'History & Mythology',
+            icon: faMonument,
             color: 'yellow',
         },
-        sports: {
-            name: 'Sports',
-            icon: faFutbol,
+        generalKnowledge: {
+            name: 'General Knowledge',
+            icon: faBrain,
             color: 'red',
         },
     };
 } else if (date.getDay() === 5) {
     CATEGORIES = {
-        animals: {
-            name: 'Animals',
-            icon: faCat ,
+        film: {
+            name: 'Film',
+            icon: faFilm,
             color: 'green',
         },
-        geography: {
-            name: 'Geography',
-            icon: faMountain,
+        cartoonsAnimation: {
+            name: 'Cartoons & Animation',
+            icon: faPen,
             color: 'yellow',
         },
-        sports: {
-            name: 'Sports',
-            icon: faFutbol,
+        television: {
+            name: 'Television',
+            icon: faTv,
             color: 'red',
         },
     };
 } else if (date.getDay() === 6) {
     CATEGORIES = {
-        animals: {
-            name: 'Animals',
-            icon: faCat ,
+        comics: {
+            name: 'Comics',
+            icon: faScroll,
             color: 'green',
         },
-        geography: {
-            name: 'Geography',
-            icon: faMountain,
+        books: {
+            name: 'Books',
+            icon: faBook,
             color: 'yellow',
         },
-        sports: {
-            name: 'Sports',
-            icon: faFutbol,
+        animeManga: {
+            name: 'Anime & Manga',
+            icon: faBookOpen,
             color: 'red',
         },
     };
