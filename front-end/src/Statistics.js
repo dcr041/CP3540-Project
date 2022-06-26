@@ -60,7 +60,7 @@ export function Statistics() {
                 <Col className='text-center'>{user.gamesPlayed}
                     <p className='fw-bold'>Played</p>
                 </Col>
-                <Col className='text-center'>{Math.round((user.questionsRight/user.questionsWrong) * 100)} 
+                <Col className='text-center'>{Math.round((user.questionsRight/(user.questionsRight + user.questionsWrong) * 100))} 
                     <p className='fw-bold'>Right %</p>
                 </Col>
                 <Col className='text-center'>{user.questionsRight}
