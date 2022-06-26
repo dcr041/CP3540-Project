@@ -4,6 +4,33 @@ import {MongoClient} from 'mongodb';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
+import http from 'http';
+import https from 'https';
+import fs from 'fs';
+
+// import packages
+const https = require('https');
+const fs = require('fs');
+
+// serve the API with signed certificate on 443 (SSL/HTTPS) port
+const httpsServer = https.createServer({
+  key: fs.readFileSync('/etc/letsencrypt/live/quizarama.ca/privkey.pem'),
+  cert: fs.readFileSync('/etc/letsencrypt/live/quizarama.ca/fullchain.pem'),
+}, app);
+
+httpsServer.listen(443, () => {
+    console.log('HTTPS Server running on port 443');
+});
+
+const http = require('http');
+
+// serve the API on 80 (HTTP) port
+const httpServer = http.createServer(app);
+
+httpServer.listen(80, () => {
+    console.log('HTTP Server running on port 80');
+});
+
 const app = express();
 
 const __filename = fileURLToPath(import.meta.url);
@@ -18,14 +45,59 @@ app.get('/api/sports', async (req, res) => {
 
         const db = client.db('sports');
 
-        const sportsInfo = await db.collection('mysports').find({}).toArray();
+        const sportsInfo = await db.collection('mySports').find({}).toArray();
         console.log(sportsInfo);
         res.status(200).json(sportsInfo);
 
         client.close();
     }
-    catch( error ) {
-        res.status(500).json( { message: "Error connecting to db", error});
+    catch(error) {
+        res.status(500).json({message: "Error connecting to db", error});
+    }
+});
+
+app.post('/api/overwriteSports', async(req, res) => {
+    const apiKey = "5fc4b71d86d4400fa7088bdca284e2a1";
+    console.log(req.headers);
+
+    if (req.headers.apikey == apiKey) {
+        try{
+            let sportsData = req.body
+            const client = await MongoClient.connect('mongodb://localhost:27017', {useNewUrlParser: true});
+            const db = client.db('sports');
+    
+            await db.collection('mySports').deleteMany( {} );
+            await db.collection('mySports').insertMany(sportsData);
+            res.status(200).json(sportsData);
+            client.close();
+        }
+        catch (error) {
+            res.status(500).json({message: "Error connecting to db", error});
+        }
+    } else {
+        res.status(500).json({message: "Invalid API Key"});
+    }
+});
+
+app.post('/api/addSports', async(req, res) => {
+    const apiKey = "5fc4b71d86d4400fa7088bdca284e2a1";
+    console.log(req.headers);
+
+    if (req.headers.apikey == apiKey) {
+        try{
+            let sportsData = req.body
+            const client = await MongoClient.connect('mongodb://localhost:27017', {useNewUrlParser: true});
+            const db = client.db('sports');
+    
+            await db.collection('mySports').insertMany(sportsData);
+            res.status(200).json(sportsData);
+            client.close();
+        }
+        catch (error) {
+            res.status(500).json({message: "Error connecting to db", error});
+        }
+    } else {
+        res.status(500).json({message: "Invalid API Key"});
     }
 });
 
@@ -43,7 +115,52 @@ app.get('/api/boardGames', async (req, res) => {
         client.close();
     }
     catch( error ) {
-        res.status(500).json( { message: "Error connecting to db", error});
+        res.status(500).json({message: "Error connecting to db", error});
+    }
+});
+
+app.post('/api/overwriteBoardGames', async(req, res) => {
+    const apiKey = "5fc4b71d86d4400fa7088bdca284e2a1";
+    console.log(req.headers);
+
+    if (req.headers.apikey == apiKey) {
+        try{
+            let boardGamesData = req.body
+            const client = await MongoClient.connect('mongodb://localhost:27017', {useNewUrlParser: true});
+            const db = client.db('boardGames');
+    
+            await db.collection('myBoardGames').deleteMany( {} );
+            await db.collection('myBoardGames').insertMany(boardGamesData);
+            res.status(200).json(boardGamesData);
+            client.close();
+        }
+        catch (error) {
+            res.status(500).json({message: "Error connecting to db", error});
+        }
+    } else {
+        res.status(500).json({message: "Invalid API Key"});
+    }
+});
+
+app.post('/api/addBoardGames', async(req, res) => {
+    const apiKey = "5fc4b71d86d4400fa7088bdca284e2a1";
+    console.log(req.headers);
+
+    if (req.headers.apikey == apiKey) {
+        try{
+            let boardGamesData = req.body
+            const client = await MongoClient.connect('mongodb://localhost:27017', {useNewUrlParser: true});
+            const db = client.db('boardGames');
+    
+            await db.collection('myBoardGames').insertMany(boardGamesData);
+            res.status(200).json(boardGamesData);
+            client.close();
+        }
+        catch (error) {
+            res.status(500).json({message: "Error connecting to db", error});
+        }
+    } else {
+        res.status(500).json({message: "Invalid API Key"});
     }
 });
 
@@ -61,7 +178,52 @@ app.get('/api/videoGames', async (req, res) => {
         client.close();
     }
     catch( error ) {
-        res.status(500).json( { message: "Error connecting to db", error});
+        res.status(500).json({message: "Error connecting to db", error});
+    }
+});
+
+app.post('/api/overwriteVideoGames', async(req, res) => {
+    const apiKey = "5fc4b71d86d4400fa7088bdca284e2a1";
+    console.log(req.headers);
+
+    if (req.headers.apikey == apiKey) {
+        try{
+            let videoGamesData = req.body
+            const client = await MongoClient.connect('mongodb://localhost:27017', {useNewUrlParser: true});
+            const db = client.db('videoGames');
+    
+            await db.collection('myVideoGames').deleteMany( {} );
+            await db.collection('myVideoGames').insertMany(videoGamesData);
+            res.status(200).json(videoGamesData);
+            client.close();
+        }
+        catch (error) {
+            res.status(500).json({message: "Error connecting to db", error});
+        }
+    } else {
+        res.status(500).json({message: "Invalid API Key"});
+    }
+});
+
+app.post('/api/addVideoGames', async(req, res) => {
+    const apiKey = "5fc4b71d86d4400fa7088bdca284e2a1";
+    console.log(req.headers);
+
+    if (req.headers.apikey == apiKey) {
+        try{
+            let videoGamesData = req.body
+            const client = await MongoClient.connect('mongodb://localhost:27017', {useNewUrlParser: true});
+            const db = client.db('videoGames');
+    
+            await db.collection('myVideoGames').insertMany(videoGamesData);
+            res.status(200).json(videoGamesData);
+            client.close();
+        }
+        catch (error) {
+            res.status(500).json({message: "Error connecting to db", error});
+        }
+    } else {
+        res.status(500).json({message: "Invalid API Key"});
     }
 });
 
@@ -83,6 +245,51 @@ app.get('/api/music', async (req, res) => {
     }
 });
 
+app.post('/api/overwriteMusic', async(req, res) => {
+    const apiKey = "5fc4b71d86d4400fa7088bdca284e2a1";
+    console.log(req.headers);
+
+    if (req.headers.apikey == apiKey) {
+        try{
+            let musicData = req.body
+            const client = await MongoClient.connect('mongodb://localhost:27017', {useNewUrlParser: true});
+            const db = client.db('music');
+    
+            await db.collection('myMusic').deleteMany( {} );
+            await db.collection('myMusic').insertMany(musicData);
+            res.status(200).json(musicData);
+            client.close();
+        }
+        catch (error) {
+            res.status(500).json({message: "Error connecting to db", error});
+        }
+    } else {
+        res.status(500).json({message: "Invalid API Key"});
+    }
+});
+
+app.post('/api/addMusic', async(req, res) => {
+    const apiKey = "5fc4b71d86d4400fa7088bdca284e2a1";
+    console.log(req.headers);
+
+    if (req.headers.apikey == apiKey) {
+        try{
+            let musicData = req.body
+            const client = await MongoClient.connect('mongodb://localhost:27017', {useNewUrlParser: true});
+            const db = client.db('music');
+    
+            await db.collection('myMusic').insertMany(musicData);
+            res.status(200).json(musicData);
+            client.close();
+        }
+        catch (error) {
+            res.status(500).json({message: "Error connecting to db", error});
+        }
+    } else {
+        res.status(500).json({message: "Invalid API Key"});
+    }
+});
+
 app.get('/api/celebrities', async (req, res) => {
     try {
         
@@ -98,6 +305,51 @@ app.get('/api/celebrities', async (req, res) => {
     }
     catch( error ) {
         res.status(500).json( { message: "Error connecting to db", error});
+    }
+});
+
+app.post('/api/overwriteCelebrities', async(req, res) => {
+    const apiKey = "5fc4b71d86d4400fa7088bdca284e2a1";
+    console.log(req.headers);
+
+    if (req.headers.apikey == apiKey) {
+        try{
+            let celebritiesData = req.body
+            const client = await MongoClient.connect('mongodb://localhost:27017', {useNewUrlParser: true});
+            const db = client.db('celebrities');
+    
+            await db.collection('myCelebrities').deleteMany( {} );
+            await db.collection('myCelebrities').insertMany(celebritiesData);
+            res.status(200).json(celebritiesData);
+            client.close();
+        }
+        catch (error) {
+            res.status(500).json({message: "Error connecting to db", error});
+        }
+    } else {
+        res.status(500).json({message: "Invalid API Key"});
+    }
+});
+
+app.post('/api/addCelebrities', async(req, res) => {
+    const apiKey = "5fc4b71d86d4400fa7088bdca284e2a1";
+    console.log(req.headers);
+
+    if (req.headers.apikey == apiKey) {
+        try{
+            let celebritiesData = req.body
+            const client = await MongoClient.connect('mongodb://localhost:27017', {useNewUrlParser: true});
+            const db = client.db('celebrities');
+    
+            await db.collection('myCelebrities').insertMany(celebritiesData);
+            res.status(200).json(celebritiesData);
+            client.close();
+        }
+        catch (error) {
+            res.status(500).json({message: "Error connecting to db", error});
+        }
+    } else {
+        res.status(500).json({message: "Invalid API Key"});
     }
 });
 
@@ -119,6 +371,51 @@ app.get('/api/art', async (req, res) => {
     }
 });
 
+app.post('/api/overwriteArt', async(req, res) => {
+    const apiKey = "5fc4b71d86d4400fa7088bdca284e2a1";
+    console.log(req.headers);
+
+    if (req.headers.apikey == apiKey) {
+        try{
+            let artData = req.body
+            const client = await MongoClient.connect('mongodb://localhost:27017', {useNewUrlParser: true});
+            const db = client.db('art');
+    
+            await db.collection('myArt').deleteMany( {} );
+            await db.collection('myArt').insertMany(artData);
+            res.status(200).json(artData);
+            client.close();
+        }
+        catch (error) {
+            res.status(500).json({message: "Error connecting to db", error});
+        }
+    } else {
+        res.status(500).json({message: "Invalid API Key"});
+    }
+});
+
+app.post('/api/addArt', async(req, res) => {
+    const apiKey = "5fc4b71d86d4400fa7088bdca284e2a1";
+    console.log(req.headers);
+
+    if (req.headers.apikey == apiKey) {
+        try{
+            let artData = req.body
+            const client = await MongoClient.connect('mongodb://localhost:27017', {useNewUrlParser: true});
+            const db = client.db('art');
+    
+            await db.collection('myArt').insertMany(artData);
+            res.status(200).json(artData);
+            client.close();
+        }
+        catch (error) {
+            res.status(500).json({message: "Error connecting to db", error});
+        }
+    } else {
+        res.status(500).json({message: "Invalid API Key"});
+    }
+});
+
 app.get('/api/scienceNature', async (req, res) => {
     try {
         
@@ -134,6 +431,51 @@ app.get('/api/scienceNature', async (req, res) => {
     }
     catch( error ) {
         res.status(500).json( { message: "Error connecting to db", error});
+    }
+});
+
+app.post('/api/overwriteScienceNature', async(req, res) => {
+    const apiKey = "5fc4b71d86d4400fa7088bdca284e2a1";
+    console.log(req.headers);
+
+    if (req.headers.apikey == apiKey) {
+        try{
+            let scienceNatureData = req.body
+            const client = await MongoClient.connect('mongodb://localhost:27017', {useNewUrlParser: true});
+            const db = client.db('scienceNature');
+    
+            await db.collection('myScienceNature').deleteMany( {} );
+            await db.collection('myScienceNature').insertMany(scienceNatureData);
+            res.status(200).json(scienceNatureData);
+            client.close();
+        }
+        catch (error) {
+            res.status(500).json({message: "Error connecting to db", error});
+        }
+    } else {
+        res.status(500).json({message: "Invalid API Key"});
+    }
+});
+
+app.post('/api/addScienceNature', async(req, res) => {
+    const apiKey = "5fc4b71d86d4400fa7088bdca284e2a1";
+    console.log(req.headers);
+
+    if (req.headers.apikey == apiKey) {
+        try{
+            let scienceNatureData = req.body
+            const client = await MongoClient.connect('mongodb://localhost:27017', {useNewUrlParser: true});
+            const db = client.db('scienceNature');
+    
+            await db.collection('myScienceNature').insertMany(scienceNatureData);
+            res.status(200).json(scienceNatureData);
+            client.close();
+        }
+        catch (error) {
+            res.status(500).json({message: "Error connecting to db", error});
+        }
+    } else {
+        res.status(500).json({message: "Invalid API Key"});
     }
 });
 
@@ -155,6 +497,51 @@ app.get('/api/geography', async (req, res) => {
     }
 });
 
+app.post('/api/overwriteGeography', async(req, res) => {
+    const apiKey = "5fc4b71d86d4400fa7088bdca284e2a1";
+    console.log(req.headers);
+
+    if (req.headers.apikey == apiKey) {
+        try{
+            let geographyData = req.body
+            const client = await MongoClient.connect('mongodb://localhost:27017', {useNewUrlParser: true});
+            const db = client.db('geography');
+    
+            await db.collection('myGeography').deleteMany( {} );
+            await db.collection('myGeography').insertMany(geographyData);
+            res.status(200).json(geographyData);
+            client.close();
+        }
+        catch (error) {
+            res.status(500).json({message: "Error connecting to db", error});
+        }
+    } else {
+        res.status(500).json({message: "Invalid API Key"});
+    }
+});
+
+app.post('/api/addGeography', async(req, res) => {
+    const apiKey = "5fc4b71d86d4400fa7088bdca284e2a1";
+    console.log(req.headers);
+
+    if (req.headers.apikey == apiKey) {
+        try{
+            let geographyData = req.body
+            const client = await MongoClient.connect('mongodb://localhost:27017', {useNewUrlParser: true});
+            const db = client.db('geography');
+    
+            await db.collection('myGeography').insertMany(geographyData);
+            res.status(200).json(geographyData);
+            client.close();
+        }
+        catch (error) {
+            res.status(500).json({message: "Error connecting to db", error});
+        }
+    } else {
+        res.status(500).json({message: "Invalid API Key"});
+    }
+});
+
 app.get('/api/animals', async (req, res) => {
     try {
         
@@ -170,6 +557,51 @@ app.get('/api/animals', async (req, res) => {
     }
     catch( error ) {
         res.status(500).json( { message: "Error connecting to db", error});
+    }
+});
+
+app.post('/api/overwriteAnimals', async(req, res) => {
+    const apiKey = "5fc4b71d86d4400fa7088bdca284e2a1";
+    console.log(req.headers);
+
+    if (req.headers.apikey == apiKey) {
+        try{
+            let animalsData = req.body
+            const client = await MongoClient.connect('mongodb://localhost:27017', {useNewUrlParser: true});
+            const db = client.db('animals');
+    
+            await db.collection('myAnimals').deleteMany( {} );
+            await db.collection('myAnimals').insertMany(animalsData);
+            res.status(200).json(animalsData);
+            client.close();
+        }
+        catch (error) {
+            res.status(500).json({message: "Error connecting to db", error});
+        }
+    } else {
+        res.status(500).json({message: "Invalid API Key"});
+    }
+});
+
+app.post('/api/addAnimals', async(req, res) => {
+    const apiKey = "5fc4b71d86d4400fa7088bdca284e2a1";
+    console.log(req.headers);
+
+    if (req.headers.apikey == apiKey) {
+        try{
+            let animalsData = req.body
+            const client = await MongoClient.connect('mongodb://localhost:27017', {useNewUrlParser: true});
+            const db = client.db('animals');
+    
+            await db.collection('myAnimals').insertMany(animalsData);
+            res.status(200).json(animalsData);
+            client.close();
+        }
+        catch (error) {
+            res.status(500).json({message: "Error connecting to db", error});
+        }
+    } else {
+        res.status(500).json({message: "Invalid API Key"});
     }
 });
 
@@ -191,6 +623,51 @@ app.get('/api/vehicles', async (req, res) => {
     }
 });
 
+app.post('/api/overwriteVehicles', async(req, res) => {
+    const apiKey = "5fc4b71d86d4400fa7088bdca284e2a1";
+    console.log(req.headers);
+
+    if (req.headers.apikey == apiKey) {
+        try{
+            let vehiclesData = req.body
+            const client = await MongoClient.connect('mongodb://localhost:27017', {useNewUrlParser: true});
+            const db = client.db('vehicles');
+    
+            await db.collection('myVehicles').deleteMany( {} );
+            await db.collection('myVehicles').insertMany(vehiclesData);
+            res.status(200).json(vehiclesData);
+            client.close();
+        }
+        catch (error) {
+            res.status(500).json({message: "Error connecting to db", error});
+        }
+    } else {
+        res.status(500).json({message: "Invalid API Key"});
+    }
+});
+
+app.post('/api/addVehicles', async(req, res) => {
+    const apiKey = "5fc4b71d86d4400fa7088bdca284e2a1";
+    console.log(req.headers);
+
+    if (req.headers.apikey == apiKey) {
+        try{
+            let vehiclesData = req.body
+            const client = await MongoClient.connect('mongodb://localhost:27017', {useNewUrlParser: true});
+            const db = client.db('vehicles');
+    
+            await db.collection('myVehicles').insertMany(vehiclesData);
+            res.status(200).json(vehiclesData);
+            client.close();
+        }
+        catch (error) {
+            res.status(500).json({message: "Error connecting to db", error});
+        }
+    } else {
+        res.status(500).json({message: "Invalid API Key"});
+    }
+});
+
 app.get('/api/mathematics', async (req, res) => {
     try {
         
@@ -206,6 +683,51 @@ app.get('/api/mathematics', async (req, res) => {
     }
     catch( error ) {
         res.status(500).json( { message: "Error connecting to db", error});
+    }
+});
+
+app.post('/api/overwriteMathematics', async(req, res) => {
+    const apiKey = "5fc4b71d86d4400fa7088bdca284e2a1";
+    console.log(req.headers);
+
+    if (req.headers.apikey == apiKey) {
+        try{
+            let mathematicsData = req.body
+            const client = await MongoClient.connect('mongodb://localhost:27017', {useNewUrlParser: true});
+            const db = client.db('mathematics');
+    
+            await db.collection('myMathematics').deleteMany( {} );
+            await db.collection('myMathematics').insertMany(mathematicsData);
+            res.status(200).json(mathematicsData);
+            client.close();
+        }
+        catch (error) {
+            res.status(500).json({message: "Error connecting to db", error});
+        }
+    } else {
+        res.status(500).json({message: "Invalid API Key"});
+    }
+});
+
+app.post('/api/addMathematics', async(req, res) => {
+    const apiKey = "5fc4b71d86d4400fa7088bdca284e2a1";
+    console.log(req.headers);
+
+    if (req.headers.apikey == apiKey) {
+        try{
+            let mathematicsData = req.body
+            const client = await MongoClient.connect('mongodb://localhost:27017', {useNewUrlParser: true});
+            const db = client.db('mathematics');
+    
+            await db.collection('myMathematics').insertMany(mathematicsData);
+            res.status(200).json(mathematicsData);
+            client.close();
+        }
+        catch (error) {
+            res.status(500).json({message: "Error connecting to db", error});
+        }
+    } else {
+        res.status(500).json({message: "Invalid API Key"});
     }
 });
 
@@ -227,6 +749,51 @@ app.get('/api/gadgetsComputers', async (req, res) => {
     }
 });
 
+app.post('/api/overwriteGadgetsComputers', async(req, res) => {
+    const apiKey = "5fc4b71d86d4400fa7088bdca284e2a1";
+    console.log(req.headers);
+
+    if (req.headers.apikey == apiKey) {
+        try{
+            let gadgetsComputersData = req.body
+            const client = await MongoClient.connect('mongodb://localhost:27017', {useNewUrlParser: true});
+            const db = client.db('gadgetsComputers');
+    
+            await db.collection('myGadgetsComputers').deleteMany( {} );
+            await db.collection('myGadgetsComputers').insertMany(gadgetsComputersData);
+            res.status(200).json(gadgetsComputersData);
+            client.close();
+        }
+        catch (error) {
+            res.status(500).json({message: "Error connecting to db", error});
+        }
+    } else {
+        res.status(500).json({message: "Invalid API Key"});
+    }
+});
+
+app.post('/api/addGadgetsComputers', async(req, res) => {
+    const apiKey = "5fc4b71d86d4400fa7088bdca284e2a1";
+    console.log(req.headers);
+
+    if (req.headers.apikey == apiKey) {
+        try{
+            let gadgetsComputersData = req.body
+            const client = await MongoClient.connect('mongodb://localhost:27017', {useNewUrlParser: true});
+            const db = client.db('gadgetsComputers');
+    
+            await db.collection('myGadgetsComputers').insertMany(gadgetsComputersData);
+            res.status(200).json(gadgetsComputersData);
+            client.close();
+        }
+        catch (error) {
+            res.status(500).json({message: "Error connecting to db", error});
+        }
+    } else {
+        res.status(500).json({message: "Invalid API Key"});
+    }
+});
+
 app.get('/api/politics', async (req, res) => {
     try {
         
@@ -242,6 +809,51 @@ app.get('/api/politics', async (req, res) => {
     }
     catch( error ) {
         res.status(500).json( { message: "Error connecting to db", error});
+    }
+});
+
+app.post('/api/overwritePolitics', async(req, res) => {
+    const apiKey = "5fc4b71d86d4400fa7088bdca284e2a1";
+    console.log(req.headers);
+
+    if (req.headers.apikey == apiKey) {
+        try{
+            let politicsData = req.body
+            const client = await MongoClient.connect('mongodb://localhost:27017', {useNewUrlParser: true});
+            const db = client.db('politics');
+    
+            await db.collection('myPolitics').deleteMany( {} );
+            await db.collection('myPolitics').insertMany(politicsData);
+            res.status(200).json(politicsData);
+            client.close();
+        }
+        catch (error) {
+            res.status(500).json({message: "Error connecting to db", error});
+        }
+    } else {
+        res.status(500).json({message: "Invalid API Key"});
+    }
+});
+
+app.post('/api/addPolitics', async(req, res) => {
+    const apiKey = "5fc4b71d86d4400fa7088bdca284e2a1";
+    console.log(req.headers);
+
+    if (req.headers.apikey == apiKey) {
+        try{
+            let politicsData = req.body
+            const client = await MongoClient.connect('mongodb://localhost:27017', {useNewUrlParser: true});
+            const db = client.db('politics');
+    
+            await db.collection('myPolitics').insertMany(politicsData);
+            res.status(200).json(politicsData);
+            client.close();
+        }
+        catch (error) {
+            res.status(500).json({message: "Error connecting to db", error});
+        }
+    } else {
+        res.status(500).json({message: "Invalid API Key"});
     }
 });
 
@@ -263,6 +875,51 @@ app.get('/api/historyMythology', async (req, res) => {
     }
 });
 
+app.post('/api/overwriteHistoryMythology', async(req, res) => {
+    const apiKey = "5fc4b71d86d4400fa7088bdca284e2a1";
+    console.log(req.headers);
+
+    if (req.headers.apikey == apiKey) {
+        try{
+            let historyMythologyData = req.body
+            const client = await MongoClient.connect('mongodb://localhost:27017', {useNewUrlParser: true});
+            const db = client.db('historyMythology');
+    
+            await db.collection('myHistoryMythology').deleteMany( {} );
+            await db.collection('myHistoryMythology').insertMany(historyMythologyData);
+            res.status(200).json(historyMythologyData);
+            client.close();
+        }
+        catch (error) {
+            res.status(500).json({message: "Error connecting to db", error});
+        }
+    } else {
+        res.status(500).json({message: "Invalid API Key"});
+    }
+});
+
+app.post('/api/addHistoryMythology', async(req, res) => {
+    const apiKey = "5fc4b71d86d4400fa7088bdca284e2a1";
+    console.log(req.headers);
+
+    if (req.headers.apikey == apiKey) {
+        try{
+            let historyMythologyData = req.body
+            const client = await MongoClient.connect('mongodb://localhost:27017', {useNewUrlParser: true});
+            const db = client.db('historyMythology');
+    
+            await db.collection('myHistoryMythology').insertMany(historyMythologyData);
+            res.status(200).json(historyMythologyData);
+            client.close();
+        }
+        catch (error) {
+            res.status(500).json({message: "Error connecting to db", error});
+        }
+    } else {
+        res.status(500).json({message: "Invalid API Key"});
+    }
+});
+
 app.get('/api/generalKnowledge', async (req, res) => {
     try {
         
@@ -278,6 +935,51 @@ app.get('/api/generalKnowledge', async (req, res) => {
     }
     catch( error ) {
         res.status(500).json( { message: "Error connecting to db", error});
+    }
+});
+
+app.post('/api/overwriteGeneralKnowledge', async(req, res) => {
+    const apiKey = "5fc4b71d86d4400fa7088bdca284e2a1";
+    console.log(req.headers);
+
+    if (req.headers.apikey == apiKey) {
+        try{
+            let generalKnowledgeData = req.body
+            const client = await MongoClient.connect('mongodb://localhost:27017', {useNewUrlParser: true});
+            const db = client.db('generalKnowledge');
+    
+            await db.collection('myGeneralKnowledge').deleteMany( {} );
+            await db.collection('myGeneralKnowledge').insertMany(generalKnowledgeData);
+            res.status(200).json(generalKnowledgeData);
+            client.close();
+        }
+        catch (error) {
+            res.status(500).json({message: "Error connecting to db", error});
+        }
+    } else {
+        res.status(500).json({message: "Invalid API Key"});
+    }
+});
+
+app.post('/api/addGeneralKnowledge', async(req, res) => {
+    const apiKey = "5fc4b71d86d4400fa7088bdca284e2a1";
+    console.log(req.headers);
+
+    if (req.headers.apikey == apiKey) {
+        try{
+            let generalKnowledgeData = req.body
+            const client = await MongoClient.connect('mongodb://localhost:27017', {useNewUrlParser: true});
+            const db = client.db('generalKnowledge');
+    
+            await db.collection('myGeneralKnowledge').insertMany(generalKnowledgeData);
+            res.status(200).json(generalKnowledgeData);
+            client.close();
+        }
+        catch (error) {
+            res.status(500).json({message: "Error connecting to db", error});
+        }
+    } else {
+        res.status(500).json({message: "Invalid API Key"});
     }
 });
 
@@ -299,6 +1001,52 @@ app.get('/api/film', async (req, res) => {
     }
 });
 
+app.post('/api/overwriteFilm', async(req, res) => {
+    const apiKey = "5fc4b71d86d4400fa7088bdca284e2a1";
+    console.log(req.headers);
+
+    if (req.headers.apikey == apiKey) {
+        try{
+            let filmData = req.body
+            const client = await MongoClient.connect('mongodb://localhost:27017', {useNewUrlParser: true});
+            const db = client.db('film');
+    
+            await db.collection('myFilm').deleteMany( {} );
+            await db.collection('myFilm').insertMany(filmData);
+            res.status(200).json(filmData);
+            client.close();
+        }
+        catch (error) {
+            res.status(500).json({message: "Error connecting to db", error});
+        }
+    } else {
+        res.status(500).json({message: "Invalid API Key"});
+    }
+});
+
+app.post('/api/addFilm', async(req, res) => {
+    const apiKey = "5fc4b71d86d4400fa7088bdca284e2a1";
+    console.log(req.headers);
+
+    if (req.headers.apikey == apiKey) {
+        try{
+            let filmData = req.body
+            const client = await MongoClient.connect('mongodb://localhost:27017', {useNewUrlParser: true});
+            const db = client.db('film');
+    
+            await db.collection('myFilm').insertMany(filmData);
+            res.status(200).json(filmData);
+            client.close();
+        }
+        catch (error) {
+            res.status(500).json({message: "Error connecting to db", error});
+        }
+    } else {
+        res.status(500).json({message: "Invalid API Key"});
+    }
+});
+
+
 app.get('/api/cartoonsAnimation', async (req, res) => {
     try {
         
@@ -314,6 +1062,51 @@ app.get('/api/cartoonsAnimation', async (req, res) => {
     }
     catch( error ) {
         res.status(500).json( { message: "Error connecting to db", error});
+    }
+});
+
+app.post('/api/overwriteCartoonsAnimation', async(req, res) => {
+    const apiKey = "5fc4b71d86d4400fa7088bdca284e2a1";
+    console.log(req.headers);
+
+    if (req.headers.apikey == apiKey) {
+        try{
+            let cartoonsAnimationData = req.body
+            const client = await MongoClient.connect('mongodb://localhost:27017', {useNewUrlParser: true});
+            const db = client.db('cartoonsAnimation');
+    
+            await db.collection('myCartoonsAnimation').deleteMany( {} );
+            await db.collection('myCartoonsAnimation').insertMany(cartoonsAnimationData);
+            res.status(200).json(cartoonsAnimationData);
+            client.close();
+        }
+        catch (error) {
+            res.status(500).json({message: "Error connecting to db", error});
+        }
+    } else {
+        res.status(500).json({message: "Invalid API Key"});
+    }
+});
+
+app.post('/api/addCartoonsAnimation', async(req, res) => {
+    const apiKey = "5fc4b71d86d4400fa7088bdca284e2a1";
+    console.log(req.headers);
+
+    if (req.headers.apikey == apiKey) {
+        try{
+            let cartoonsAnimationData = req.body
+            const client = await MongoClient.connect('mongodb://localhost:27017', {useNewUrlParser: true});
+            const db = client.db('cartoonsAnimation');
+    
+            await db.collection('myCartoonsAnimation').insertMany(cartoonsAnimationData);
+            res.status(200).json(cartoonsAnimationData);
+            client.close();
+        }
+        catch (error) {
+            res.status(500).json({message: "Error connecting to db", error});
+        }
+    } else {
+        res.status(500).json({message: "Invalid API Key"});
     }
 });
 
@@ -335,6 +1128,51 @@ app.get('/api/television', async (req, res) => {
     }
 });
 
+app.post('/api/overwriteTelevision', async(req, res) => {
+    const apiKey = "5fc4b71d86d4400fa7088bdca284e2a1";
+    console.log(req.headers);
+
+    if (req.headers.apikey == apiKey) {
+        try{
+            let televisionData = req.body
+            const client = await MongoClient.connect('mongodb://localhost:27017', {useNewUrlParser: true});
+            const db = client.db('television');
+    
+            await db.collection('myTelevision').deleteMany( {} );
+            await db.collection('myTelevision').insertMany(televisionData);
+            res.status(200).json(televisionData);
+            client.close();
+        }
+        catch (error) {
+            res.status(500).json({message: "Error connecting to db", error});
+        }
+    } else {
+        res.status(500).json({message: "Invalid API Key"});
+    }
+});
+
+app.post('/api/addTelevision', async(req, res) => {
+    const apiKey = "5fc4b71d86d4400fa7088bdca284e2a1";
+    console.log(req.headers);
+
+    if (req.headers.apikey == apiKey) {
+        try{
+            let televisionData = req.body
+            const client = await MongoClient.connect('mongodb://localhost:27017', {useNewUrlParser: true});
+            const db = client.db('television');
+    
+            await db.collection('myTelevision').insertMany(televisionData);
+            res.status(200).json(televisionData);
+            client.close();
+        }
+        catch (error) {
+            res.status(500).json({message: "Error connecting to db", error});
+        }
+    } else {
+        res.status(500).json({message: "Invalid API Key"});
+    }
+});
+
 app.get('/api/comics', async (req, res) => {
     try {
         
@@ -350,6 +1188,51 @@ app.get('/api/comics', async (req, res) => {
     }
     catch( error ) {
         res.status(500).json( { message: "Error connecting to db", error});
+    }
+});
+
+app.post('/api/overwriteComics', async(req, res) => {
+    const apiKey = "5fc4b71d86d4400fa7088bdca284e2a1";
+    console.log(req.headers);
+
+    if (req.headers.apikey == apiKey) {
+        try{
+            let comicsData = req.body
+            const client = await MongoClient.connect('mongodb://localhost:27017', {useNewUrlParser: true});
+            const db = client.db('comics');
+    
+            await db.collection('myComics').deleteMany( {} );
+            await db.collection('myComics').insertMany(comicsData);
+            res.status(200).json(comicsData);
+            client.close();
+        }
+        catch (error) {
+            res.status(500).json({message: "Error connecting to db", error});
+        }
+    } else {
+        res.status(500).json({message: "Invalid API Key"});
+    }
+});
+
+app.post('/api/addComics', async(req, res) => {
+    const apiKey = "5fc4b71d86d4400fa7088bdca284e2a1";
+    console.log(req.headers);
+
+    if (req.headers.apikey == apiKey) {
+        try{
+            let comicsData = req.body
+            const client = await MongoClient.connect('mongodb://localhost:27017', {useNewUrlParser: true});
+            const db = client.db('comics');
+    
+            await db.collection('myComics').insertMany(comicsData);
+            res.status(200).json(comicsData);
+            client.close();
+        }
+        catch (error) {
+            res.status(500).json({message: "Error connecting to db", error});
+        }
+    } else {
+        res.status(500).json({message: "Invalid API Key"});
     }
 });
 
@@ -371,6 +1254,51 @@ app.get('/api/books', async (req, res) => {
     }
 });
 
+app.post('/api/overwriteBooks', async(req, res) => {
+    const apiKey = "5fc4b71d86d4400fa7088bdca284e2a1";
+    console.log(req.headers);
+
+    if (req.headers.apikey == apiKey) {
+        try{
+            let booksData = req.body
+            const client = await MongoClient.connect('mongodb://localhost:27017', {useNewUrlParser: true});
+            const db = client.db('books');
+    
+            await db.collection('myBooks').deleteMany( {} );
+            await db.collection('myBooks').insertMany(booksData);
+            res.status(200).json(booksData);
+            client.close();
+        }
+        catch (error) {
+            res.status(500).json({message: "Error connecting to db", error});
+        }
+    } else {
+        res.status(500).json({message: "Invalid API Key"});
+    }
+});
+
+app.post('/api/addBooks', async(req, res) => {
+    const apiKey = "5fc4b71d86d4400fa7088bdca284e2a1";
+    console.log(req.headers);
+
+    if (req.headers.apikey == apiKey) {
+        try{
+            let booksData = req.body
+            const client = await MongoClient.connect('mongodb://localhost:27017', {useNewUrlParser: true});
+            const db = client.db('books');
+    
+            await db.collection('myBooks').insertMany(booksData);
+            res.status(200).json(booksData);
+            client.close();
+        }
+        catch (error) {
+            res.status(500).json({message: "Error connecting to db", error});
+        }
+    } else {
+        res.status(500).json({message: "Invalid API Key"});
+    }
+});
+
 app.get('/api/animeManga', async (req, res) => {
     try {
         
@@ -386,6 +1314,51 @@ app.get('/api/animeManga', async (req, res) => {
     }
     catch( error ) {
         res.status(500).json( { message: "Error connecting to db", error});
+    }
+});
+
+app.post('/api/overwriteAnimeManga', async(req, res) => {
+    const apiKey = "5fc4b71d86d4400fa7088bdca284e2a1";
+    console.log(req.headers);
+
+    if (req.headers.apikey == apiKey) {
+        try{
+            let animeMangaData = req.body
+            const client = await MongoClient.connect('mongodb://localhost:27017', {useNewUrlParser: true});
+            const db = client.db('animeManga');
+    
+            await db.collection('myAnimeManga').deleteMany( {} );
+            await db.collection('myAnimeManga').insertMany(animeMangaData);
+            res.status(200).json(animeMangaData);
+            client.close();
+        }
+        catch (error) {
+            res.status(500).json({message: "Error connecting to db", error});
+        }
+    } else {
+        res.status(500).json({message: "Invalid API Key"});
+    }
+});
+
+app.post('/api/addAnimeManga', async(req, res) => {
+    const apiKey = "5fc4b71d86d4400fa7088bdca284e2a1";
+    console.log(req.headers);
+
+    if (req.headers.apikey == apiKey) {
+        try{
+            let animeMangaData = req.body
+            const client = await MongoClient.connect('mongodb://localhost:27017', {useNewUrlParser: true});
+            const db = client.db('animeManga');
+    
+            await db.collection('myAnimeManga').insertMany(animeMangaData);
+            res.status(200).json(animeMangaData);
+            client.close();
+        }
+        catch (error) {
+            res.status(500).json({message: "Error connecting to db", error});
+        }
+    } else {
+        res.status(500).json({message: "Invalid API Key"});
     }
 });
 
