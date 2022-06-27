@@ -24,7 +24,6 @@ const NavBar = () => (
             <hr className="text-white"></hr>
         </Row>
         </>
-    
 );
 
 export default NavBar;

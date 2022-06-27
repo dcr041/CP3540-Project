@@ -117,7 +117,7 @@ export function Statistics() {
             <Container>
                 <Row>
                     <Col className='text-center'>
-                        <Col className="fw-bold">Music</Col>
+                        <Col className="fw-bold">Music, Musicals & Theatre</Col>
                         <Col className="fw-normal">Total Score:</Col>
                         <Col className="fw-light">
                             {user.music.right}/{user.music.wrong}
@@ -309,7 +309,7 @@ export function Statistics() {
                     </Col>
                
                     <Col className='text-center'>
-                        <Col className="fw-bold">Anime & Manga</Col>
+                        <Col className="fw-bold">Japanese Anime & Manga</Col>
                         <Col className="fw-normal">Total Score:</Col>
                         <Col className="fw-light">
                             {user.animeManga.right}/{user.animeManga.wrong}

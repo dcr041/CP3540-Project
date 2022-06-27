@@ -22,7 +22,7 @@ export function AddStats(countCorrectAnswers) {
     } else if (todaysCategory === "Video Games") {
         user.videoGames.right = user.videoGames.right + countCorrectAnswers;
         user.videoGames.wrong = user.videoGames.wrong + 5;
-    } else if (todaysCategory === "Music"){
+    } else if (todaysCategory === "Music, Musicals & Theatre"){
         user.music.right = user.music.right + countCorrectAnswers;
         user.music.wrong = user.music.wrong + 5;
     } else if (todaysCategory === "Celebrities"){
@@ -73,7 +73,7 @@ export function AddStats(countCorrectAnswers) {
     } else if (todaysCategory === "Books"){
         user.books.right = user.books.right + countCorrectAnswers;
         user.books.wrong = user.books.wrong + 5;
-    } else if (todaysCategory === "Anime & Manga") {
+    } else if (todaysCategory === " Japanese Anime & Manga") {
         user.animeManga.right = user.animeManga.right + countCorrectAnswers;
         user.animeManga.wrong = user.animeManga.wrong + 5;
     }
