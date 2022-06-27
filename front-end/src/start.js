@@ -165,7 +165,6 @@ function Start() {
         .then(setAnimeMangaQuestions)
     }, []);
 
-
   const setCurrentCategory = category => {
 
     const date = new Date();
@@ -357,6 +356,7 @@ function Start() {
                     break;
             }
     }
+    
   };
   
   return (
@@ -421,7 +421,5 @@ function shuffle(array) {
   
     return array;
   }
-
-
 
 export default Start;
