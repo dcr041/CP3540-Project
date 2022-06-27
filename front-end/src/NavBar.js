@@ -23,11 +23,6 @@ const NavBar = () => (
             </Col>  
             <hr className="text-white"></hr>
         </Row>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
         </>
     
 );
