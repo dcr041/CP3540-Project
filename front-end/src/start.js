@@ -168,36 +168,17 @@ function Start() {
 
   const setCurrentCategory = category => {
 
+    console.log(user);
     setCategory(category);
     switch (category.name) {
-        case CATEGORIES.sports.name:
-            user.todayCategory = "Sports";
-            localStorage.setItem("user", JSON.stringify(user));
-            setSportsQuestions(sportsQuestions);
-            shuffle(sportsQuestions);
-            setQuestions(sportsQuestions);
-            break;
-        case CATEGORIES.boardGames.name:
-            user.todayCategory = "Board Games";
+        case CATEGORIES.music.name:
+            user.todayCategory = "Music";
             localStorage.setItem("user", JSON.stringify(user));
             console.log(user);
-            setBoardGamesQuestions(boardGamesQuestions);
-            shuffle(boardGamesQuestions);
-            setQuestions(boardGamesQuestions);
-            break;
-        case CATEGORIES.videoGames.name:
-            user.todayCategory = "Video Games";
-            localStorage.setItem("user", JSON.stringify(user));
-            setVideoGamesQuestions(videoGamesQuestions);
-            shuffle(videoGamesQuestions);
-            setQuestions(videoGamesQuestions);
-            break;
-        case CATEGORIES.music.name:
-            user.todayCategory = "Music, Musicals & Theatre";
-            localStorage.setItem("user", JSON.stringify(user));
             setMusicQuestions(musicQuestions);
             shuffle(musicQuestions);
             setQuestions(musicQuestions);
+            console.log(user);
             break;
         case CATEGORIES.celebrities.name:
             user.todayCategory = "Celebrities";
@@ -206,16 +187,46 @@ function Start() {
             setCelebritiesQuestions(celebritiesQuestions);
             shuffle(celebritiesQuestions);
             setQuestions(celebritiesQuestions);
+            console.log(user);
             break;
         case CATEGORIES.art.name:
             user.todayCategory = "Art";
             localStorage.setItem("user", JSON.stringify(user));
+            console.log(user);
             setArtQuestions(artQuestions);
             shuffle(artQuestions);
             setQuestions(artQuestions);
+            console.log(user);
+            break;
+        case CATEGORIES.sports.name:
+            user.todayCategory = "Sports";
+            localStorage.setItem("user", JSON.stringify(user));
+            console.log(user);
+            setSportsQuestions(sportsQuestions);
+            shuffle(sportsQuestions);
+            setQuestions(sportsQuestions);
+            console.log(user);
+            break;
+        case CATEGORIES.boardGames.name:
+            user.todayCategory = "Board Games";
+            localStorage.setItem("user", JSON.stringify(user));
+            console.log(user);
+            setBoardGamesQuestions(boardGamesQuestions);
+            shuffle(boardGamesQuestions);
+            setQuestions(boardGamesQuestions);
+            console.log(user);
+            break;
+        case CATEGORIES.videoGames.name:
+            user.todayCategory = "Video Games";
+            localStorage.setItem("user", JSON.stringify(user));
+            console.log(user);
+            setVideoGamesQuestions(videoGamesQuestions);
+            shuffle(videoGamesQuestions);
+            setQuestions(videoGamesQuestions);
+            console.log(user);
             break;
         case CATEGORIES.scienceNature.name:
-            user.todayCategory = "Science & Nature";
+            user.todayCategory = "Science and Nature";
             localStorage.setItem("user", JSON.stringify(user));
             setScienceNatureQuestions(scienceNatureQuestions);
             shuffle(scienceNatureQuestions);
@@ -252,7 +263,7 @@ function Start() {
             setQuestions(mathematicsQuestions);
             break;
         case CATEGORIES.gadgetsComputers.name:
-            user.todayCategory = "Gadgets & Computers";
+            user.todayCategory = "Gadgets and Computers";
             localStorage.setItem("user", JSON.stringify(user));
             setGadgetsComputersQuestions(gadgetsComputersQuestions);
             shuffle(gadgetsComputersQuestions);
@@ -266,7 +277,7 @@ function Start() {
             setQuestions(politicsQuestions);
             break;
         case CATEGORIES.historyMythology.name:
-            user.todayCategory = "History & Mythology";
+            user.todayCategory = "History and Mythology";
             localStorage.setItem("user", JSON.stringify(user));
             console.log(user);
             setHistoryMythologyQuestions(historyMythologyQuestions);
@@ -288,7 +299,7 @@ function Start() {
             setQuestions(filmQuestions);
             break;
         case CATEGORIES.cartoonsAnimation.name:
-            user.todayCategory = "Cartoons & Animation";
+            user.todayCategory = "Cartoons and Animation";
             localStorage.setItem("user", JSON.stringify(user));
             console.log(user);
             setCartoonsAnimationQuestions(cartoonsAnimationQuestions);
@@ -318,7 +329,7 @@ function Start() {
             setQuestions(booksQuestions);
             break;
         case CATEGORIES.animeManga.name:
-            user.todayCategory = "Japanese Anime & Manga";
+            user.todayCategory = "Japanese Anime and Manga";
             localStorage.setItem("user", JSON.stringify(user));
             setAnimeMangaQuestions(animeMangaQuestions);
             shuffle(animeMangaQuestions);

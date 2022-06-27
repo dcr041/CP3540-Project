@@ -22,7 +22,7 @@ export function AddStats(countCorrectAnswers) {
     } else if (todaysCategory === "Video Games") {
         user.videoGames.right = user.videoGames.right + countCorrectAnswers;
         user.videoGames.wrong = user.videoGames.wrong + 5;
-    } else if (todaysCategory === "Music, Musicals & Theatre"){
+    } else if (todaysCategory === "Music"){
         user.music.right = user.music.right + countCorrectAnswers;
         user.music.wrong = user.music.wrong + 5;
     } else if (todaysCategory === "Celebrities"){

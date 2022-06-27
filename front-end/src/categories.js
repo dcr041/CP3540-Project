@@ -27,7 +27,7 @@ if (date.getDay() === 0) {
 } else if (date.getDay() === 1) {
     CATEGORIES = {
         music: {
-            name: 'Music, Musicals & Theatre',
+            name: 'Music',
             icon: faMusic,
             color: 'green',
         },
@@ -45,7 +45,7 @@ if (date.getDay() === 0) {
 } else if (date.getDay() === 2) {
     CATEGORIES = {
         scienceNature: {
-            name: 'Science & Nature',
+            name: 'Science and Nature',
             icon: faTree,
             color: 'green',
         },
@@ -73,7 +73,7 @@ if (date.getDay() === 0) {
             color: 'yellow',
         },
         gadgetsComputers: {
-            name: 'Gadgets & Computers',
+            name: 'Gadgets and Computers',
             icon: faComputer,
             color: 'red',
         },
@@ -86,7 +86,7 @@ if (date.getDay() === 0) {
             color: 'green',
         },
         historyMythology: {
-            name: 'History & Mythology',
+            name: 'History and Mythology',
             icon: faMonument,
             color: 'yellow',
         },
@@ -104,7 +104,7 @@ if (date.getDay() === 0) {
             color: 'green',
         },
         cartoonsAnimation: {
-            name: 'Cartoons & Animation',
+            name: 'Cartoons and Animation',
             icon: faPen,
             color: 'yellow',
         },
@@ -127,7 +127,7 @@ if (date.getDay() === 0) {
             color: 'yellow',
         },
         animeManga: {
-            name: 'Japanese Anime & Manga',
+            name: 'Japanese Anime and Manga',
             icon: faBookOpen,
             color: 'red',
         },
