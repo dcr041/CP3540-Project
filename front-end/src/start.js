@@ -170,184 +170,156 @@ function Start() {
     setCategory(category);
     const date = new Date();
     if (date.getDay() === 0) {
-        switch (category.name) {
-            case CATEGORIES.sports.name:
+        if (category.name === CATEGORIES.sports.name) {
                 user.todayCategory = "Sports";
                 localStorage.setItem("user", JSON.stringify(user));
                 console.log(user);
                 setSportsQuestions(sportsQuestions);
                 shuffle(sportsQuestions);
                 setQuestions(sportsQuestions);
-                break;
-            case CATEGORIES.boardGames.name:
-                user.todayCategory = "Board Games";
-                localStorage.setItem("user", JSON.stringify(user));
-                console.log(user);
-                setBoardGamesQuestions(boardGamesQuestions);
-                shuffle(boardGamesQuestions);
-                setQuestions(boardGamesQuestions);
-                break;
-            case CATEGORIES.videoGames.name:
-                user.todayCategory = "Video Games";
-                localStorage.setItem("user", JSON.stringify(user));
-                console.log(user);
-                setVideoGamesQuestions(videoGamesQuestions);
-                shuffle(videoGamesQuestions);
-                setQuestions(videoGamesQuestions);
-                break;
+        } else if (category.name === CATEGORIES.boardGames.name) {
+            user.todayCategory = "Board Games";
+            localStorage.setItem("user", JSON.stringify(user));
+            console.log(user);
+            setBoardGamesQuestions(boardGamesQuestions);
+            shuffle(boardGamesQuestions);
+            setQuestions(boardGamesQuestions);
+        } else if (category.name === CATEGORIES.videoGames.name) {
+            user.todayCategory = "Video Games";
+            localStorage.setItem("user", JSON.stringify(user));
+            console.log(user);
+            setVideoGamesQuestions(videoGamesQuestions);
+            shuffle(videoGamesQuestions);
+            setQuestions(videoGamesQuestions);
         }
     } else if (date.getDay() === 1) {
-        switch (category.name) {
-            case CATEGORIES.music.name:
+        if (category.name === CATEGORIES.music.name) {
                 user.todayCategory = "Music";
                 localStorage.setItem("user", JSON.stringify(user));
                 console.log(user);
                 setMusicQuestions(musicQuestions);
                 shuffle(musicQuestions);
                 setQuestions(musicQuestions);
-                break;
-            case CATEGORIES.celebrities.name:
+            } else if (category.name === CATEGORIES.celebrities.name) {
                 user.todayCategory = "Celebrities";
                 localStorage.setItem("user", JSON.stringify(user));
                 console.log(user);
                 setCelebritiesQuestions(celebritiesQuestions);
                 shuffle(celebritiesQuestions);
                 setQuestions(celebritiesQuestions);
-                break;
-            case CATEGORIES.art.name:
+            } else if (category.name === CATEGORIES.art.name) {
                 user.todayCategory = "Art";
                 localStorage.setItem("user", JSON.stringify(user));
                 console.log(user);
                 setArtQuestions(artQuestions);
                 shuffle(artQuestions);
                 setQuestions(artQuestions);
-                break;
-        }
+            }
     } else if (date.getDay() === 2) {
-        switch (category.name) {
-            case CATEGORIES.scienceNature.name:
+        if (category.name === CATEGORIES.scienceNature.name) {
                 user.todayCategory = "Science and Nature";
                 localStorage.setItem("user", JSON.stringify(user));
                 setScienceNatureQuestions(scienceNatureQuestions);
                 shuffle(scienceNatureQuestions);
                 setQuestions(scienceNatureQuestions);
-                break;
-            case CATEGORIES.geography.name:
+            } else if (category.name === CATEGORIES.geography.name) {
                 user.todayCategory = "Geography";
                 localStorage.setItem("user", JSON.stringify(user));
                 console.log(user);
                 setGeographyQuestions(geographyQuestions);
                 shuffle(geographyQuestions);
                 setQuestions(geographyQuestions);
-                break;
-            case CATEGORIES.animals.name:
+            } else if (category.name === CATEGORIES.animals.name) {
                 user.todayCategory = "Animals";
                 localStorage.setItem("user", JSON.stringify(user));
                 setAnimalsQuestions(animalsQuestions);
                 shuffle(animalsQuestions);
                 setQuestions(animalsQuestions);
-                break;
-        }
+            }
     } else if (date.getDay() === 3) {
-        switch (category.name) {
-            case CATEGORIES.vehicles.name:
+        if (category.name === CATEGORIES.vehicles.name) {
                 user.todayCategory = "Vehicles";
                 localStorage.setItem("user", JSON.stringify(user));
                 setVehiclesQuestions(vehiclesQuestions);
                 shuffle(vehiclesQuestions);
                 setQuestions(vehiclesQuestions);
-                break;
-            case CATEGORIES.mathematics.name:
+            } else if (category.name === CATEGORIES.mathematics.name) {
                 user.todayCategory = "Mathematics";
                 localStorage.setItem("user", JSON.stringify(user));
                 console.log(user);
                 setMathematicsQuestions(mathematicsQuestions);
                 shuffle(mathematicsQuestions);
                 setQuestions(mathematicsQuestions);
-                break;
-            case CATEGORIES.gadgetsComputers.name:
+            } else if (category.name === CATEGORIES.gadgetsComputers.name) {
                 user.todayCategory = "Gadgets and Computers";
                 localStorage.setItem("user", JSON.stringify(user));
                 setGadgetsComputersQuestions(gadgetsComputersQuestions);
                 shuffle(gadgetsComputersQuestions);
                 setQuestions(gadgetsComputersQuestions);
-                break;
-        }
+            }
     } else if (date.getDay() === 4) {
-        switch (category.name) {
-            case CATEGORIES.politics.name:
+        if (category.name === CATEGORIES.politics.name) {
                 user.todayCategory = "Politics";
                 localStorage.setItem("user", JSON.stringify(user));
                 setPoliticsQuestions(politicsQuestions);
                 shuffle(politicsQuestions);
                 setQuestions(politicsQuestions);
-                break;
-            case CATEGORIES.historyMythology.name:
+            } else if (category.name === CATEGORIES.historyMythology.name) {
                 user.todayCategory = "History and Mythology";
                 localStorage.setItem("user", JSON.stringify(user));
                 console.log(user);
                 setHistoryMythologyQuestions(historyMythologyQuestions);
                 shuffle(historyMythologyQuestions);
                 setQuestions(historyMythologyQuestions);
-                break;
-            case CATEGORIES.generalKnowledge.name:
+            } else if (category.name === CATEGORIES.generalKnowledge.name) {
                 user.todayCategory = "General Knowledge";
                 localStorage.setItem("user", JSON.stringify(user));
                 setGeneralKnowledgeQuestions(generalKnowledgeQuestions);
                 shuffle(generalKnowledgeQuestions);
                 setQuestions(generalKnowledgeQuestions);
-                break;
-        }
+            }
     } else if (date.getDay() === 5) {
-        switch (category.name) {
-            case CATEGORIES.film.name:
+        if (category.name === CATEGORIES.film.name) {
                 user.todayCategory = "Film";
                 localStorage.setItem("user", JSON.stringify(user));
                 setFilmQuestions(filmQuestions);
                 shuffle(filmQuestions);
                 setQuestions(filmQuestions);
-                break;
-            case CATEGORIES.cartoonsAnimation.name:
+            } else if (category.name === CATEGORIES.cartoonsAnimation.name) {
                 user.todayCategory = "Cartoons and Animation";
                 localStorage.setItem("user", JSON.stringify(user));
                 console.log(user);
                 setCartoonsAnimationQuestions(cartoonsAnimationQuestions);
                 shuffle(cartoonsAnimationQuestions);
                 setQuestions(cartoonsAnimationQuestions);
-                break;
-            case CATEGORIES.television.name:
+            } else if (category.name === CATEGORIES.television.name) {
                 user.todayCategory = "Television";
                 localStorage.setItem("user", JSON.stringify(user));
                 setTelevisionQuestions(televisionQuestions);
                 shuffle(televisionQuestions);
                 setQuestions(televisionQuestions);
-                break;
-        }
+            }
     } else if (date.getDay() === 6) {
-        switch (category.name) {
-            case CATEGORIES.comics.name:
+        if (category.name === CATEGORIES.comics.name) {
                 user.todayCategory = "Comics";
                 localStorage.setItem("user", JSON.stringify(user));
                 setComicsQuestions(comicsQuestions);
                 shuffle(comicsQuestions);
                 setQuestions(comicsQuestions);
-                break;
-            case CATEGORIES.books.name:
+            } else if (category.name === CATEGORIES.books.name) {
                 user.todayCategory = "Books";
                 localStorage.setItem("user", JSON.stringify(user));
                 console.log(user);
                 setBooksQuestions(booksQuestions);
                 shuffle(booksQuestions);
                 setQuestions(booksQuestions);
-                break;
-            case CATEGORIES.animeManga.name:
+            } else if (category.name === CATEGORIES.animeManga.name) {
                 user.todayCategory = "Japanese Anime and Manga";
                 localStorage.setItem("user", JSON.stringify(user));
                 setAnimeMangaQuestions(animeMangaQuestions);
                 shuffle(animeMangaQuestions);
                 setQuestions(animeMangaQuestions);
-                break;
-        }
+            }
     }
     
   };
