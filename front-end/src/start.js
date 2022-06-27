@@ -35,7 +35,6 @@ function Start() {
   const [animeMangaQuestions, setAnimeMangaQuestions] = useState([]);
   if (user.date !== new Date().getDay()) {
     user.todayScore = 0;
-    // user.todayCategory = "";
     localStorage.setItem("user", JSON.stringify(user));
   }
     
@@ -166,7 +165,7 @@ function Start() {
     }, []);
 
   const setCurrentCategory = category => {
-
+    user.todayCategory = "";
     setCategory(category);
     const date = new Date();
     if (date.getDay() === 0) {
