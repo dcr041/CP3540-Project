@@ -11,7 +11,6 @@ import {MdPictureAsPdf} from 'react-icons/md';
 const Footer = () => {
   return (
     <>
-    <br></br>
     <hr className="text-white"></hr>
     <footer className="p-4 absolute bottom-0 left-0 w-full bg-dark text-white " >
       
