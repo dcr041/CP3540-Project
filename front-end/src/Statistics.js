@@ -33,6 +33,8 @@ export function Statistics() {
     }
     return (
         <>
+        <br></br>
+        <br></br>
         <Container className='border border-secondary border-5 text-white bg-dark rounded flex' >
             {/* Todays Scores/General Scoring/Timer */}
             <Col className='text-center fs-2 fw-bold'>Statistics</Col>
