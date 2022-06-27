@@ -193,7 +193,7 @@ function Start() {
             setQuestions(videoGamesQuestions);
             break;
         case CATEGORIES.music.name:
-            user.todayCategory = "Music, Musicals & Theatre";
+            user.todayCategory = "Music";
             localStorage.setItem("user", JSON.stringify(user));
             setMusicQuestions(musicQuestions);
             shuffle(musicQuestions);

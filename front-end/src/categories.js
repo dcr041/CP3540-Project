@@ -8,24 +8,6 @@ var CATEGORIES = "";
 const date = new Date();
 if (date.getDay() === 0) {
     CATEGORIES = {
-        music: {
-            name: 'Music, Musicals & Theatre',
-            icon: faMusic,
-            color: 'green',
-        },
-        celebrities: {
-            name: 'Celebrities',
-            icon: faPerson,
-            color: 'yellow',
-        },
-        art: {
-            name: 'Art',
-            icon: faPaintbrush,
-            color: 'red',
-        }
-    };
-} else if (date.getDay() === 1) {
-    CATEGORIES = {
         sports: {
             name: 'Sports',
             icon: faFutbol,
@@ -40,7 +22,25 @@ if (date.getDay() === 0) {
             name: 'Video Games',
             icon: faGamepad,
             color: 'red',
-        }
+        },
+    };
+} else if (date.getDay() === 1) {
+    CATEGORIES = {
+        music: {
+            name: 'Music',
+            icon: faMusic,
+            color: 'green',
+        },
+        celebrities: {
+            name: 'Celebrities',
+            icon: faPerson,
+            color: 'yellow',
+        },
+        art: {
+            name: 'Art',
+            icon: faPaintbrush,
+            color: 'red',
+        },
     };
 } else if (date.getDay() === 2) {
     CATEGORIES = {
@@ -58,7 +58,7 @@ if (date.getDay() === 0) {
             name: 'Animals',
             icon: faCat,
             color: 'red',
-        }
+        },
     };
 } else if (date.getDay() === 3) {
     CATEGORIES = {
@@ -76,7 +76,7 @@ if (date.getDay() === 0) {
             name: 'Gadgets & Computers',
             icon: faComputer,
             color: 'red',
-        }
+        },
     };
 } else if (date.getDay() === 4) {
     CATEGORIES = {
@@ -94,7 +94,7 @@ if (date.getDay() === 0) {
             name: 'General Knowledge',
             icon: faBrain,
             color: 'red',
-        }
+        },
     };
 } else if (date.getDay() === 5) {
     CATEGORIES = {
@@ -112,7 +112,7 @@ if (date.getDay() === 0) {
             name: 'Television',
             icon: faTv,
             color: 'red',
-        }
+        },
     };
 } else if (date.getDay() === 6) {
     CATEGORIES = {
@@ -130,7 +130,7 @@ if (date.getDay() === 0) {
             name: 'Japanese Anime & Manga',
             icon: faBookOpen,
             color: 'red',
-        }
+        },
     };
 };
 
