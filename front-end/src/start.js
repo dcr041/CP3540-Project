@@ -167,10 +167,10 @@ function Start() {
 
   const setCurrentCategory = category => {
 
+    setCategory(category);
     const date = new Date();
     switch (date.getDay()) {
         case 0:
-            setCategory(category);
             switch (category.name) {
                 case CATEGORIES.sports.name:
                     user.todayCategory = "Sports";
@@ -198,7 +198,6 @@ function Start() {
                     break;
             }
         case 1:
-            setCategory(category);
             switch (category.name) {
                 case CATEGORIES.music.name:
                     user.todayCategory = "Music";
@@ -226,7 +225,6 @@ function Start() {
                     break;
             }
         case 2:
-            setCategory(category);
             switch (category.name) {
                 case CATEGORIES.scienceNature.name:
                     user.todayCategory = "Science and Nature";
@@ -252,7 +250,6 @@ function Start() {
                     break;
             }
         case 3:
-            setCategory(category);
             switch (category.name) {
                 case CATEGORIES.vehicles.name:
                     user.todayCategory = "Vehicles";
@@ -278,7 +275,6 @@ function Start() {
                     break;
             }
         case 4:
-            setCategory(category);
             switch (category.name) {
                 case CATEGORIES.politics.name:
                     user.todayCategory = "Politics";
@@ -304,7 +300,6 @@ function Start() {
                     break;
             }
         case 5:
-            setCategory(category);
             switch (category.name) {
                 case CATEGORIES.film.name:
                     user.todayCategory = "Film";
@@ -330,7 +325,6 @@ function Start() {
                     break;
             }
         case 6:
-            setCategory(category);
             switch (category.name) {
                 case CATEGORIES.comics.name:
                     user.todayCategory = "Comics";
