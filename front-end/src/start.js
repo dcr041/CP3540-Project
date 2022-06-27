@@ -168,14 +168,17 @@ function Start() {
 
   const setCurrentCategory = category => {
 
+    console.log(user);
     setCategory(category);
     switch (category.name) {
         case CATEGORIES.music.name:
             user.todayCategory = "Music";
             localStorage.setItem("user", JSON.stringify(user));
+            console.log(user);
             setMusicQuestions(musicQuestions);
             shuffle(musicQuestions);
             setQuestions(musicQuestions);
+            console.log(user);
             break;
         case CATEGORIES.celebrities.name:
             user.todayCategory = "Celebrities";
@@ -184,20 +187,25 @@ function Start() {
             setCelebritiesQuestions(celebritiesQuestions);
             shuffle(celebritiesQuestions);
             setQuestions(celebritiesQuestions);
+            console.log(user);
             break;
         case CATEGORIES.art.name:
             user.todayCategory = "Art";
             localStorage.setItem("user", JSON.stringify(user));
+            console.log(user);
             setArtQuestions(artQuestions);
             shuffle(artQuestions);
             setQuestions(artQuestions);
+            console.log(user);
             break;
         case CATEGORIES.sports.name:
             user.todayCategory = "Sports";
             localStorage.setItem("user", JSON.stringify(user));
+            console.log(user);
             setSportsQuestions(sportsQuestions);
             shuffle(sportsQuestions);
             setQuestions(sportsQuestions);
+            console.log(user);
             break;
         case CATEGORIES.boardGames.name:
             user.todayCategory = "Board Games";
@@ -206,13 +214,16 @@ function Start() {
             setBoardGamesQuestions(boardGamesQuestions);
             shuffle(boardGamesQuestions);
             setQuestions(boardGamesQuestions);
+            console.log(user);
             break;
         case CATEGORIES.videoGames.name:
             user.todayCategory = "Video Games";
             localStorage.setItem("user", JSON.stringify(user));
+            console.log(user);
             setVideoGamesQuestions(videoGamesQuestions);
             shuffle(videoGamesQuestions);
             setQuestions(videoGamesQuestions);
+            console.log(user);
             break;
         case CATEGORIES.scienceNature.name:
             user.todayCategory = "Science & Nature";
