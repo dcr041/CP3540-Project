@@ -226,7 +226,7 @@ function Start() {
             console.log(user);
             break;
         case CATEGORIES.scienceNature.name:
-            user.todayCategory = "Science & Nature";
+            user.todayCategory = "Science and Nature";
             localStorage.setItem("user", JSON.stringify(user));
             setScienceNatureQuestions(scienceNatureQuestions);
             shuffle(scienceNatureQuestions);
@@ -263,7 +263,7 @@ function Start() {
             setQuestions(mathematicsQuestions);
             break;
         case CATEGORIES.gadgetsComputers.name:
-            user.todayCategory = "Gadgets & Computers";
+            user.todayCategory = "Gadgets and Computers";
             localStorage.setItem("user", JSON.stringify(user));
             setGadgetsComputersQuestions(gadgetsComputersQuestions);
             shuffle(gadgetsComputersQuestions);
@@ -277,7 +277,7 @@ function Start() {
             setQuestions(politicsQuestions);
             break;
         case CATEGORIES.historyMythology.name:
-            user.todayCategory = "History & Mythology";
+            user.todayCategory = "History and Mythology";
             localStorage.setItem("user", JSON.stringify(user));
             console.log(user);
             setHistoryMythologyQuestions(historyMythologyQuestions);
@@ -299,7 +299,7 @@ function Start() {
             setQuestions(filmQuestions);
             break;
         case CATEGORIES.cartoonsAnimation.name:
-            user.todayCategory = "Cartoons & Animation";
+            user.todayCategory = "Cartoons and Animation";
             localStorage.setItem("user", JSON.stringify(user));
             console.log(user);
             setCartoonsAnimationQuestions(cartoonsAnimationQuestions);
@@ -329,7 +329,7 @@ function Start() {
             setQuestions(booksQuestions);
             break;
         case CATEGORIES.animeManga.name:
-            user.todayCategory = "Japanese Anime & Manga";
+            user.todayCategory = "Japanese Anime and Manga";
             localStorage.setItem("user", JSON.stringify(user));
             setAnimeMangaQuestions(animeMangaQuestions);
             shuffle(animeMangaQuestions);
