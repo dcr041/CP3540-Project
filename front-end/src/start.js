@@ -165,8 +165,7 @@ function Start() {
     }, []);
 
   const setCurrentCategory = category => {
-    // user.todayCategory = "";
-    // setCategory(category);
+    setCategory(category);
     const date = new Date();
     if (date.getDay() === 0) {
         if (category.name === CATEGORIES.sports.name) {
