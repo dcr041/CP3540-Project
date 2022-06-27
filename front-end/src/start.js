@@ -170,28 +170,6 @@ function Start() {
 
     setCategory(category);
     switch (category.name) {
-        case CATEGORIES.sports.name:
-            user.todayCategory = "Sports";
-            localStorage.setItem("user", JSON.stringify(user));
-            setSportsQuestions(sportsQuestions);
-            shuffle(sportsQuestions);
-            setQuestions(sportsQuestions);
-            break;
-        case CATEGORIES.boardGames.name:
-            user.todayCategory = "Board Games";
-            localStorage.setItem("user", JSON.stringify(user));
-            console.log(user);
-            setBoardGamesQuestions(boardGamesQuestions);
-            shuffle(boardGamesQuestions);
-            setQuestions(boardGamesQuestions);
-            break;
-        case CATEGORIES.videoGames.name:
-            user.todayCategory = "Video Games";
-            localStorage.setItem("user", JSON.stringify(user));
-            setVideoGamesQuestions(videoGamesQuestions);
-            shuffle(videoGamesQuestions);
-            setQuestions(videoGamesQuestions);
-            break;
         case CATEGORIES.music.name:
             user.todayCategory = "Music";
             localStorage.setItem("user", JSON.stringify(user));
@@ -213,6 +191,28 @@ function Start() {
             setArtQuestions(artQuestions);
             shuffle(artQuestions);
             setQuestions(artQuestions);
+            break;
+        case CATEGORIES.sports.name:
+            user.todayCategory = "Sports";
+            localStorage.setItem("user", JSON.stringify(user));
+            setSportsQuestions(sportsQuestions);
+            shuffle(sportsQuestions);
+            setQuestions(sportsQuestions);
+            break;
+        case CATEGORIES.boardGames.name:
+            user.todayCategory = "Board Games";
+            localStorage.setItem("user", JSON.stringify(user));
+            console.log(user);
+            setBoardGamesQuestions(boardGamesQuestions);
+            shuffle(boardGamesQuestions);
+            setQuestions(boardGamesQuestions);
+            break;
+        case CATEGORIES.videoGames.name:
+            user.todayCategory = "Video Games";
+            localStorage.setItem("user", JSON.stringify(user));
+            setVideoGamesQuestions(videoGamesQuestions);
+            shuffle(videoGamesQuestions);
+            setQuestions(videoGamesQuestions);
             break;
         case CATEGORIES.scienceNature.name:
             user.todayCategory = "Science & Nature";
