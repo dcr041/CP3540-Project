@@ -318,7 +318,7 @@ function Start() {
             setQuestions(booksQuestions);
             break;
         case CATEGORIES.animeManga.name:
-            user.todayCategory = "Anime & Manga";
+            user.todayCategory = "Japanese Anime & Manga";
             localStorage.setItem("user", JSON.stringify(user));
             setAnimeMangaQuestions(animeMangaQuestions);
             shuffle(animeMangaQuestions);
