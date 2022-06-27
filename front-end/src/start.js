@@ -94,7 +94,7 @@ function Start() {
     }, []);
 
     useEffect(() => {
-        fetch('/api/Vehicles')
+        fetch('/api/vehicles')
         .then((response) => response.json())
         .then(setVehiclesQuestions)
     }, []);
@@ -193,7 +193,7 @@ function Start() {
             setQuestions(videoGamesQuestions);
             break;
         case CATEGORIES.music.name:
-            user.todayCategory = "Music";
+            user.todayCategory = "Music, Musicals & Theatre";
             localStorage.setItem("user", JSON.stringify(user));
             setMusicQuestions(musicQuestions);
             shuffle(musicQuestions);
