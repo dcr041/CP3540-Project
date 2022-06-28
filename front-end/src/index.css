@@ -5,6 +5,7 @@ html  {
   margin: 0px;
   padding: 0px;
   overflow-x: hidden; 
+  background-color: rgb(33,37,41,255);
 
 }
 
@@ -73,4 +74,5 @@ h1 {
 
 #footer {
   position: fixed;
+  width: 100%;
 }
