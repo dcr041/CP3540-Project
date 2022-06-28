@@ -35,7 +35,7 @@ httpServer.listen(80, () => {
 
 app.enable('trust proxy')
 app.use((req, res, next) => {
-    req.secure ? next() : res.redirect('https://' + req.headers.host + req.url)
+    req.secure ? next() : res.redirect('https://www.' + req.headers.host + req.url)
 })
 
 const __filename = fileURLToPath(import.meta.url);
