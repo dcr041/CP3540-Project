@@ -64,15 +64,7 @@ h1 {
   color: #fff;
 }
 
-#myVideo {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  min-width: 100%; 
-  min-height: 100%;
-}
-
 #footer {
-  position: fixed;
+  position: absolute;
   width: 100%;
 }
