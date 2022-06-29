@@ -322,17 +322,6 @@ export function Statistics() {
              ) : null}
         <br></br>
         </Container>
-        
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
         </>
     );
 }

@@ -357,11 +357,6 @@ function Start() {
             )}
             </>
     </Container>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
     </>
   );
   
