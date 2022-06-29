@@ -14,7 +14,6 @@ const Footer = () => {
     <footer id="footer" className="p-4 absolute bottom-0 left-0 w-full bg-dark text-white " >
       <hr className="text-white"></hr>
       <Container className="text-center" >
-        <hr className="text-white"></hr>
         <Row>
             <Col className="pb-4">
               <h6>Mohamed | Full Stack Developer</h6>
