@@ -36,14 +36,14 @@ export default function GameView({ questions }) {
         setAnswers(shuffleAnswers(question));
     }, [currentQuestionIndex]);
 
-    const [second, setSecond]= useState(10);
+    const [second, setSecond]= useState(15);
     var timer;
     useEffect(() => {
         if (gameOver === false) {
             timer =  setInterval(() => {
                 setSecond(second-1);
                 if (second===0){
-                    setSecond(10);
+                    setSecond(15);
                     const newQuestionIndex = currentQuestionIndex + 1;
                     setCurrentQuestionIndex(newQuestionIndex);
                     setIsSubmitting(false);
