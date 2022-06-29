@@ -35,7 +35,7 @@ const Footer = () => {
               <h6 className="text-muted"><AiOutlineMail /> daniel.rowe31@ed.cna.nl.ca</h6>
               <a className="h3" href="https://github.com/dcr041"><FaGithub /></a>
               <a className="h3" href="https://www.linkedin.com"><FaLinkedin /></a>
-              <a className="h3" href="https://drive.google.com/uc?export=pdf&id=1vilnnN0fk0m32tCCEb24-RNuAzBmisK8"><MdPictureAsPdf /></a>
+              <a className="h3" href="https://drive.google.com/file/d/1vilnnN0fk0m32tCCEb24-RNuAzBmisK8/view?usp=sharing"><MdPictureAsPdf /></a>
             </Col>
           </Row>
       </Container>
