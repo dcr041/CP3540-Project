@@ -15,7 +15,7 @@ function App() {
   CheckNewUser();
  
   return (
-    <main>
+    <main id="page-container">
         <Router >
         <NavBar />
             <Routes>
