@@ -222,25 +222,25 @@ export function Statistics() {
             <Container>  
                 <Row>
                     <Col className='text-center'>
-                        <Col className="text-center fw-bold">Politics</Col>
-                        <Col className="text-start fw-bold">Total Score:</Col>
-                        <Col className="text-end">
+                        <Col className="fw-bold">Politics</Col>
+                        <Col className="fw-normal">Total Score:</Col>
+                        <Col className="fw-light">
                             {user.politics.right}/{user.politics.wrong}
                         </Col>
                     </Col>
                 
                     <Col className='text-center'>
-                        <Col className="text-center fw-bold">History & Mythology</Col>
-                        <Col className="text-start fw-bold">Total Score:</Col>
-                        <Col className="text-end">
+                        <Col className="fw-bold">History & Mythology</Col>
+                        <Col className="fw-normal">Total Score:</Col>
+                        <Col className="fw-light">
                             {user.historyMythology.right}/{user.historyMythology.wrong}
                         </Col>
                     </Col>
                 
                     <Col className='text-center'>
-                        <Col className="text-center fw-bold">General Knowledge</Col>
-                        <Col className="text-start fw-bold">Total Score:</Col>
-                        <Col className="text-end">
+                        <Col className="fw-bold">General Knowledge</Col>
+                        <Col className="fw-normal">Total Score:</Col>
+                        <Col className="fw-light">
                             {user.generalKnowledge.right}/{user.generalKnowledge.wrong}
                         </Col>
                     </Col>
